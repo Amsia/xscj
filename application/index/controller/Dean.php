@@ -53,14 +53,14 @@ class Dean extends Controller
         $student = input('post.');
         $list = Student::findLike($student);
         $this->assign('list',$list);
-        return $this->fetch('dean/findStudent');
+        return $this->fetch('Dean/findStudent');
     }
     public function findTeacher()
     {
         $teacher = input('post.');
         $teacherList = Teacher::findLike($teacher);
         $this->assign('teacherList',$teacherList);
-        return $this->fetch('dean/findTeacher');
+        return $this->fetch('Dean/findTeacher');
     }
 
     public function findOnCourse()
@@ -76,7 +76,7 @@ class Dean extends Controller
         $data = input('post.');
         $courseList = Course::findLike($data);
         $this->assign('courseList',$courseList);
-        return $this->fetch('dean/findCourse');
+        return $this->fetch('Dean/findCourse');
     }
 
     public function findClassDetail()
@@ -84,7 +84,7 @@ class Dean extends Controller
         $classId = input('classId');
         $totalSumsList = Student::findAllAvgGradeByClassId($classId);
         $this->assign('totalSumsList',$totalSumsList);
-        return $this->fetch('dean/findClassDetail');
+        return $this->fetch('Dean/findClassDetail');
     }
 
     public function findClass()
@@ -92,7 +92,7 @@ class Dean extends Controller
         $class = input('post.');
         $classList = Classes::findLike($class);
         $this->assign('classList',$classList);
-        return $this->fetch('dean/findClass');
+        return $this->fetch('Dean/findClass');
     }
     //----------------------updates---------------------------
     public function updateStudent(Request $request)
@@ -105,13 +105,13 @@ class Dean extends Controller
         $this->assign('classList',$classList);
         $this->assign('majorList',$majorList);
         $this->assign('collegeList',$collegeList);
-        return $this->fetch('dean/updateStudent');
+        return $this->fetch('Dean/updateStudent');
     }
     public function updateTeacher(Request $request)
     {
         $teacher = Teacher::findById(input('teacherId'))[0];
         $this->assign('teacher',$teacher);
-        return $this->fetch('dean/updateTeacher');
+        return $this->fetch('Dean/updateTeacher');
     }
 
     public function updateOnCourse(Request $request)
@@ -134,7 +134,7 @@ class Dean extends Controller
         $this->assign('electiveList',$electiveList);
         $this->assign('examFormList',$examFormList);
         $this->assign('courseList',$courseList);
-        return $this->fetch('dean/updateOnCourse');
+        return $this->fetch('Dean/updateOnCourse');
     }
 
     public function updateCourse()
@@ -142,7 +142,7 @@ class Dean extends Controller
         $courseId = input('courseId');
         $course = Course::findById($courseId)[0];
         $this->assign('course',$course);
-        return $this->fetch('dean/updateCourse');
+        return $this->fetch('Dean/updateCourse');
     }
 
     public function updateClass()
@@ -153,7 +153,7 @@ class Dean extends Controller
         $this->assign('class',$class);
         $this->assign('majorList',$majorList);
 
-       return $this->fetch('dean/updateClass');
+       return $this->fetch('Dean/updateClass');
     }
     //----------------------doUpdate---------------------------
     public function doUpdateStudent()
@@ -161,35 +161,35 @@ class Dean extends Controller
         $student = input('post.');
         Student::updateStudent($student);
 //        dump($student);
-        $this->success('修改成功','dean/findStudent','',1);
+        $this->success('修改成功','Dean/findStudent','',1);
     }
 
     public function doUpdateTeacher()
     {
         $teacher = input('post.');
         Teacher::updateTeacher($teacher);
-        $this->success('修改成功','dean/findTeacher','',1);
+        $this->success('修改成功','Dean/findTeacher','',1);
     }
 
     public function doUpdateOnCourse()
     {
         $onCourse = input('post.');
         OnCourse::updateOnCourse($onCourse);
-        $this->success('修改成功','dean/findOnCourse','','1');
+        $this->success('修改成功','Dean/findOnCourse','','1');
     }
 
     public function doUpdateCourse()
     {
         $course = input('post.');
         Course::updateCourse($course);
-        $this->success('修改成功','dean/findCourse','',1);
+        $this->success('修改成功','Dean/findCourse','',1);
     }
 
     public function doUpdateClass()
     {
         $class = input('post.');
         Classes::updateClass($class);
-        $this->success("修改成功",'dean/findClass','',1);
+        $this->success("修改成功",'Dean/findClass','',1);
     }
 
     //----------------------delete---------------------------
@@ -198,9 +198,9 @@ class Dean extends Controller
         $studentId = input('studentId');
         if(Student::deleteById($studentId)>0)
         {
-            $this->success("删除成功",'dean/findStudent','','1');
+            $this->success("删除成功",'Dean/findStudent','','1');
         }else{
-            $this->error("删除出现未知错误,请重新加载页面",'dean/index');
+            $this->error("删除出现未知错误,请重新加载页面",'Dean/index');
         }
     }
 
@@ -208,9 +208,9 @@ class Dean extends Controller
     {
         $teacherId = input('teacherId');
         if (Teacher::deleteById($teacherId)>0){
-            $this->success("删除成功",'dean/findTeacher','','1');
+            $this->success("删除成功",'Dean/findTeacher','','1');
         }else{
-            $this->error("删除出现未知错误,请重新加载页面",'dean/index');
+            $this->error("删除出现未知错误,请重新加载页面",'Dean/index');
         }
     }
 
@@ -218,9 +218,9 @@ class Dean extends Controller
     {
         $onCourseId = input('onCourseId');
         if (OnCourse::deleteById($onCourseId)>0){
-            $this->success("删除成功",'dean/findOnCourse','','1');
+            $this->success("删除成功",'Dean/findOnCourse','','1');
         }else{
-            $this->error("删除出现未知错误,请重新加载页面",'dean/index');
+            $this->error("删除出现未知错误,请重新加载页面",'Dean/index');
         }
     }
 
@@ -239,18 +239,18 @@ class Dean extends Controller
             $achievementDetail['studentId']=$data['id'];
             AchievementDetail::deleteById($achievementDetail);
         }else{
-            $this->error("插入错误,请检查数据是否正确",'dean/findOnCourse','',1);
+            $this->error("插入错误,请检查数据是否正确",'Dean/findOnCourse','',1);
         }
-        $this->success('删除成功','dean/findOnCourse','',1);
+        $this->success('删除成功','Dean/findOnCourse','',1);
     }
 
     public function deleteCourse(Request $request)
     {
         $courseId = input('courseId');
         if (Course::deleteById($courseId)>0){
-            $this->success('删除成功','dean/findCourse','',1);
+            $this->success('删除成功','Dean/findCourse','',1);
         }else{
-            $this->error('删除出错','dean/findCourse','',1);
+            $this->error('删除出错','Dean/findCourse','',1);
         }
     }
 
@@ -258,9 +258,9 @@ class Dean extends Controller
     {
         $classId = input('classId');
         if (Classes::deleteById($classId)>=1){
-            $this->success('删除成功','dean/findClass','',1);
+            $this->success('删除成功','Dean/findClass','',1);
         }else{
-            $this->error('删除失败','dean/findClass','',1);
+            $this->error('删除失败','Dean/findClass','',1);
         }
     }
     //----------------------insert---------------------------
@@ -289,7 +289,7 @@ class Dean extends Controller
         $this->assign('onCourseId',$onCourseId);
         $this->assign('classList',$classList);
         $this->assign('AchievementDetail',$achievementDetail);
-        return $this->fetch('dean/insertStudentOnCourse');
+        return $this->fetch('Dean/insertStudentOnCourse');
     }
 
     public function insertOnCourse()
@@ -324,9 +324,9 @@ class Dean extends Controller
     {
         $class = input('post.');
         if (Classes::addClass($class)>=1){
-            $this->success('添加成功','dean/index','',1);
+            $this->success('添加成功','Dean/index','',1);
         }else{
-            $this->error('添加失败','dean/index','',1);
+            $this->error('添加失败','Dean/index','',1);
         }
     }
     //----------------------doInsert---------------------------
@@ -346,7 +346,7 @@ class Dean extends Controller
         $teacher = input('post.');
         $teacher['password']=$teacher['teacherId'];
         if (Teacher::addTeacher($teacher)==1){
-            $this->success("插入成功",'dean/insertTeacher','',1);
+            $this->success("插入成功",'Dean/insertTeacher','',1);
         }else{
             $this->error("插入发生错误,请检查");
         }
@@ -367,18 +367,18 @@ class Dean extends Controller
                 $achievementDetail['studentId'] = $data['id'];
                 AchievementDetail::addAchievementDetail($achievementDetail);
         }else{
-            $this->error("添加错误，请假查",'dean/findOnCourse','',1);
+            $this->error("添加错误，请假查",'Dean/findOnCourse','',1);
         }
-        $this->success('添加成功','dean/findOnCourse','',1);
+        $this->success('添加成功','Dean/findOnCourse','',1);
     }
 
     public function doInsertCourse()
     {
         $course = input('post.');
         if (Course::addCourse($course)>=1){
-            $this->success('添加成功','dean/insertCourse','',1);
+            $this->success('添加成功','Dean/insertCourse','',1);
         }else{
-            $this->error('添加错误，请检查','dean/insertCourse','',1);
+            $this->error('添加错误，请检查','Dean/insertCourse','',1);
         }
     }
 
@@ -386,9 +386,9 @@ class Dean extends Controller
     {
         $onCourse = input('post.');
         if (OnCourse::addOnCourse($onCourse)>= 1){
-            $this->success('添加成功','dean/insertOnCourse','',1);
+            $this->success('添加成功','Dean/insertOnCourse','',1);
         }else{
-            $this->error('添加错误，请检查','dean/insertOnCourse','',1);
+            $this->error('添加错误，请检查','Dean/insertOnCourse','',1);
         }
 
     }

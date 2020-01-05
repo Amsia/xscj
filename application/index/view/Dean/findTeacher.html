@@ -44,8 +44,8 @@
             <td>{$a.teacherSex}</td>
             <td>{$a.teacherAge}</td>
             <td>
-                <a href="{:url('dean/updateTeacher',['teacherId'=>$a.teacherId])}">修改  </a>
-                <a href="{:url('dean/deleteTeacher',['teacherId'=>$a.teacherId])}">删除 </a>
+                <a href="{:url('dean/updateTeacher',['teacherId'=>$a.teacherId])}" class="layui-btn-xs layui-btn">修改  </a>
+                <a href="{:url('dean/deleteTeacher',['teacherId'=>$a.teacherId])}" class="layui-btn-xs layui-btn">删除 </a>
             </td>
         </tr>
         {/volist}
