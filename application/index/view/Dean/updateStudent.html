@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改学生信息</title>
+    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
+    <script src="__STATIC__/layui/layui.js"></script>
+</head>
+<script type="text/javascript">
+    layui.use('element', function() {
+        var element = layui.element;
+        element.on('tab(demo)', function(data) {
+            console.log(data);
+        });
+    });
+    layui.use(['layer', 'form'], function(){
+        var layer = layui.layer
+            ,form = layui.form;
+        // layer.msg('学生成绩管理系统-叶广宇，沈尧');
+    });
+</script>
+<body>
+<form class="layui-form" action="{:url('Dean/doUpdateStudent')}" method="post" style="width: 350px;margin:20px auto;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">学号</label>
+        <div class="layui-inline">
+            <input type="text" name="studentId" value="{$student.studentId}" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">专业号</label>
+<!--        <div class="layui-inline">-->
+<!--            <input type="text" name="majorId" value="{$student.majorId}" class="layui-input">-->
+<!--        </div>-->
+        <div class="layui-inline">
+            <select name="majorId" value="{$student.majorId}">
+                {volist name="majorList" id="a"}
+                <option value="{$a.majorId}" {$student.majorId==$a.majorId?'selected':''}>{$a.majorName}</option>
+                {/volist}
+            </select>
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">班级号</label>
+<!--        <div class="layui-inline">-->
+<!--            <input type="text" name="classId" value="{$student.classId}" class="layui-input">-->
+<!--        </div>-->
+        <div class="layui-inline">
+            <select name="classId" value="{$student.majorId}">
+                {volist name="classList" id="a"}
+                <option value="{$a.classId}" {$student.classId==$a.classId?'selected':''}>{$a.className}</option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">学院号</label>
+<!--        <div class="layui-inline">-->
+<!--            <input type="text" name="collegeId" value="{$student.collegeId}" class="layui-input">-->
+<!--        </div>-->
+        <div class="layui-inline">
+            <select name="collegeId" value="{$student.collegeId}">
+                {volist name="collegeList" id="a"}
+                <option value="{$a.collegeId}" {$student.collegeId==$a.collegeId?'selected':''}>{$a.collegeName}</option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">学生名</label>
+        <div class="layui-inline">
+            <input type="text" name="studentName" value="{$student.studentName}" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">年龄</label>
+        <div class="layui-inline">
+            <input type="text" name="studentAge" value="{$student.studentAge}" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">性别</label>
+        <div class="layui-inline">
+            <input type="text" name="studentSex" value="{$student.studentSex}" class="layui-input">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">提交修改</button>
+            <a href="{:url('Dean/findstudent')}">
+                <button type="button" class="layui-btn layui-btn-primary">后退</button>
+            </a>
+        </div>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,99 @@
+
+body{
+	  background-image: url(image/bg1.jpg);
+ 	 font-family: arial;
+}
+
+table{
+  border: 1px solid black;
+  border-collapse: collapse;
+    margin: auto;
+  
+}
+
+td,tr,th{
+	padding:3px;
+	 border: 1px solid black;
+}
+
+ul li{
+list-style-type:none;
+
+}
+li{
+	font-size: 13px;
+	float:left;
+}
+
+image{
+  width: 150px;
+  height: 120px;
+}
+
+div{}
+.bean_tab{
+	align-text:center;
+	maegin:0;
+}
+.bean_tab a{
+	align-text:center;
+	display : inline-block;
+}
+
+#login_headimage{
+	width:80%;
+	height:160px;
+}
+#login_form{
+	padding-top: 5px;
+}
+#student_header{
+	width:90%;
+	margin-left: 8%;
+	text-align:center;
+}
+#student_achievement{text-align:center;}
+#student_button_changepassword{
+	float:right;
+	
+}
+#student_button_changepassword a 
+{
+   text-decoration:none;
+	background:#2f435e;
+	color:#f2f2f2;
+	padding: 10px 30px 10px 30px;
+	font-size:10px;
+	font-family: Î¢ÈíÑÅºÚ,ËÎÌå,Arial,Helvetica,Verdana,sans-serif;
+	font-weight:bold;
+	border-radius:3px;
+	-webkit-transition:all linear 0.30s;
+	-moz-transition:all linear 0.30s;
+	transition:all linear 0.30s;
+	}
+#student_button_changepassword a:hover{ background:#385f9e; }
+#student_button_changepassword_a{float:right;}
+#error_button a{
+	text-decoration:none;
+	background:#2f435e;
+	color:#f2f2f2;
+	padding: 10px 30px 10px 30px;
+	font-size:10px;
+	font-family: Î¢ÈíÑÅºÚ,ËÎÌå,Arial,Helvetica,Verdana,sans-serif;
+	font-weight:bold;
+	border-radius:3px;
+	-webkit-transition:all linear 0.30s;
+	-moz-transition:all linear 0.30s;
+	transition:all linear 0.30s;
+}
+#error_button a:hover{background:#385f9e; }
+#dean_header{
+	position:absolute;
+	top:0;
+	right:0;
+	margin: 0px;
+	padding:0px;
+}
+#dean_table{
+	text-align:center;
+}

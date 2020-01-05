@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>学生成绩界面</title>
+    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
+    <script src="__STATIC__/layui/layui.js"></script>
+</head>
+<script type="text/javascript">
+    layui.use('element', function() {
+        var element = layui.element;
+        element.on('tab(demo)', function(data) {
+            console.log(data);
+        });
+    });
+    layui.use(['layer', 'form'], function(){
+        var layer = layui.layer
+            ,form = layui.form;
+        // layer.msg('学生成绩管理系统-叶广宇，沈尧');
+    });
+</script>
+<body>
+<div class="layui-tab" lay-filter="demo">
+    <ul class="layui-tab-title">
+        <li >个人信息</li>
+        <li class="layui-this">我的课程成绩</li>
+        <div style="margin-right: 20px;float:right">
+            <a class="layui-btn layui-btn-xs" href="{:url('Admin/logout')}">注销账号</a>
+        </div>
+    </ul>
+
+    <div class="layui-tab-content" style="width: 80%; padding-left: 10%;">
+        <div class="layui-tab-item  ">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="200">
+                    <col width="150">
+                    <col width="100">
+                    <col width="100">
+                    <col width="150">
+                    <col width="150">
+                    <col width="200">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>年龄</th>
+                    <th>专业</th>
+                    <th>班级</th>
+                    <th>学院</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{$student["studentId"]}</td>
+                    <td>{$student['studentName']}</td>
+                    <td>{$student['studentSex']}</td>
+                    <td>{$student['studentAge']}</td>
+                    <td>{$student['majorName']}</td>
+                    <td >{$student['className']}</td>
+                    <td>{$student['collegeName']}</td>
+
+                    <td><a class="layui-btn layui-btn-xs" href="{:url('Admin/changePwd')}">更改密码</a>
+                        <a class="layui-btn layui-btn-xs" href="{:url('Admin/logout')}">注销账号</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- 			查询学生信息------------------------------------------------------ -->
+        <div class="layui-tab-item layui-show" >
+            <center>
+                <table class="layui-table">
+                    <colgroup>
+
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <td>学期</td>
+                        <td>课程号</td>
+                        <td>课程名称</td>
+                        <td>学时</td>
+                        <td>学分</td>
+                        <td>修习类别</td>
+                        <td>考试性质</td>
+                        <td>考试状态</td>
+                        <td>成绩</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {volist name="list" id="a"}
+                    <tr>
+                        <td>{$a.term}</td>
+                        <td>{$a.courseId}</td>
+                        <td>{$a.courseName}</td>
+                        <td>{$a.classHour}</td>
+                        <td>{$a.credit}</td>
+                        <td>{$a.electiveName}</td>
+                        <td>{$a.examFormName}</td>
+                        <td>{$a.natureName}</td>
+                        <td>{$a.achievement}</td>
+
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+                <p>{$list->render()}</p>
+            </center>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

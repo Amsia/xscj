@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>学生成绩界面</title>
+    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
+    <script src="__STATIC__/layui/layui.js"></script>
+    <link rel="stylesheet" href="__STATIC__/styles.css" media="screen">
+</head>
+<script type="text/javascript">
+    layui.use('element', function() {
+        var element = layui.element;
+        element.on('tab(demo)', function(data) {
+            console.log(data);
+        });
+    });
+    layui.use(['layer', 'form'], function(){
+        var layer = layui.layer
+            ,form = layui.form;
+        // layer.msg('学生成绩管理系统-叶广宇，沈尧');
+    });
+</script>
+<body>
+<div id = "student_body">
+    <div id="student_header">
+        <div id = "student_button_changepassword"><a id="student_button_changepassword_a" href="{:url('Admin/changePWD')}">更改密码</a></div>
+        <table class="student_head_table">
+
+            <tr>
+                <td><b>学号</b></td><td>{$student["studentId"]}</td>
+                <td><b>姓名</b></td><td>{$student['studentName']}</td>
+                <td><b>性别</b></td><td>{$student['studentSex']}</td>
+                <td><b>年龄</b></td><td>{$student['studentAge']}</td>
+            </tr>
+            <tr>
+                <td><b>专业</b></td><td>{$student['majorName']}</td><!-- 更改内容major.majorName下三行同理 -->
+                <td><b>班级</b></td><td colspan="2">{$student['className']}</td>
+                <td><b>学院</b></td><td colspan="2">{$student['collegeName']}</td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+    <h3 align="center">我的课程成绩</h3>
+    <br>
+    <div id="student_achievement">
+        <table align="center">
+            <tr  bgcolor="#6C94D1">
+                <td>学期</td>
+                <td>课程号</td>
+                <td>课程名称</td>
+                <td>学时</td>
+                <td>学分</td>
+                <td>修习类别</td>
+                <td>考试性质</td>
+                <td>考试状态</td>
+                <td>成绩</td>
+            </tr>
+            {volist name="list" id="a"}
+                <tr>
+                    <td>{$a.term}</td>
+                    <td>{$a.courseId}</td>
+                    <td>{$a.courseName}</td>
+                    <td>{$a.classHour}</td>
+                    <td>{$a.credit}</td>
+                    <td>{$a.electiveName}</td>
+                    <td>{$a.examFormName}</td>
+                    <td>{$a.natureName}</td>
+                    <td>{$a.achievement}</td>
+
+                </tr>
+            {/volist}
+            <tr>{$list->render()}</tr>
+        </table>
+
+    </div>
+
+</div>
+</body>
+</html>

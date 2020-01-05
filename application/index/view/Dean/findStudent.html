@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生查找结果</title>
+    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
+    <script src="__STATIC__/layui/layui.js"></script>
+</head>
+<script type="text/javascript">
+    layui.use('element', function() {
+        var element = layui.element;
+        element.on('tab(demo)', function(data) {
+            console.log(data);
+        });
+    });
+    layui.use(['layer', 'form'], function(){
+        var layer = layui.layer
+            ,form = layui.form;
+        // layer.msg('学生成绩管理系统-叶广宇，沈尧');
+    });
+</script>
+<body>
+<div id="test">
+    <table class="layui-table" style="width: 80%;margin-left: 10%;">
+        <colgroup>
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>专业</th>
+            <th>班级</th>
+            <th>学院</th>
+            <th>年龄</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+            {volist name="$list" id="a"}
+            <tr>
+                <td>{$a.studentId}</td>
+                <td>{$a.studentName}</td>
+                <td>{$a.studentSex}</td>
+                <td>{$a.majorName}</td>
+                <td>{$a.className}</td>
+                <td>{$a.collegeName}</td>
+                <td>{$a.studentAge}</td>
+                <td><a class="layui-btn-xs layui-btn" href="{:url('dean/updateStudent',['studentId'=>$a.studentId])}">修改  </a>
+                    <a class="layui-btn-xs layui-btn" href="{:url('dean/deleteStudent',['studentId'=>$a.studentId])}">删除 </a>
+                </td>
+            </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <a href="{:url('Dean/index')}" style="float: right;margin-right: 10%;">
+        <button type="button" class="layui-btn layui-btn-primary">后退</button>
+    </a>
+</div>
+</body>
+</html>

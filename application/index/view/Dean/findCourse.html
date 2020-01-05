@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程查找结果</title>
+    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
+    <script src="__STATIC__/layui/layui.js"></script>
+</head>
+<script type="text/javascript">
+    layui.use('element', function() {
+        var element = layui.element;
+        element.on('tab(demo)', function(data) {
+            console.log(data);
+        });
+    });
+    layui.use(['layer', 'form'], function(){
+        var layer = layui.layer
+            ,form = layui.form;
+        // layer.msg('学生成绩管理系统-叶广宇，沈尧');
+    });
+</script>
+<body>
+<div id="test">
+    <table class="layui-table">
+        <colgroup>
+            <col width="100">
+            <col width="200">
+            <col width="100">
+            <col width="100">
+            <col width="100">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>课程编号</th>
+            <th>课程名</th>
+            <th>课时</th>
+            <th>学分</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+            {volist name="courseList" id="a"}
+            <tr>
+                <td>{$a.courseId}</td>
+                <td>{$a.courseName}</td>
+                <td>{$a.classHour}</td>
+                <td>{$a.credit}</td>
+                <td><a href="{:url('dean/updateCourse',['courseId'=>$a.courseId])}" class="layui-btn layui-btn-xs">修改  </a>
+                    <a href="{:url('dean/deleteCourse',['courseId'=>$a.courseId])}" class="layui-btn layui-btn-xs">删除 </a></td>
+            </tr>
+            {/volist}
+        </tbody>
+    </table>
+    <a href="{:url('Dean/index')}" style="float: right;margin-right: 10%;">
+        <button type="button" class="layui-btn layui-btn-primary">后退</button>
+    </a>
+</div>
+</body>
+</html>
