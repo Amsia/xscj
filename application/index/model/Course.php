@@ -15,7 +15,7 @@ class Course{
 
 	public static function findAll()
 	{
-		return Db::table('course')->paginate(20);
+		return Db::table('course')->select();
 	}
 
 	public static function deleteById($courseId){

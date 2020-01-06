@@ -125,7 +125,9 @@ class Dean extends Controller
         $showFormList = ShowForm::findAll();
         $electiveList = OnCourse::findAllElective();
         $examFormList = ExamForm::findAll();
+        $teacherList = Teacher::findAll();
         $courseList = Course::findAll();
+        $this->assign('teacherList',$teacherList);
         $this->assign('onCourse',$onCourse);
         $this->assign('classList',$classList);
         $this->assign('majorList',$majorList);
@@ -226,7 +228,6 @@ class Dean extends Controller
         }catch (Exception $exception){
             $this->error("删除出现未知错误,请重新加载页面",'Dean/findStudent');
         }
-
     }
 
     public function deleteTeacher(Request $request)
@@ -347,7 +348,10 @@ class Dean extends Controller
         $showFormList = ShowForm::findAll();
         $electiveList = OnCourse::findAllElective();
         $examFormList = ExamForm::findAll();
+        $teacherList = Teacher::findAll();
         $courseList = Course::findAll();
+        $this->assign('teacherList',$teacherList);
+        $this->assign('courList',$courseList);
         $this->assign('classList',$classList);
         $this->assign('majorList',$majorList);
         $this->assign('collegeList',$collegeList);
@@ -453,7 +457,6 @@ class Dean extends Controller
     public function doInsertOnCourse()
     {
         $onCourse = input('post.');
-
         try{
             if (OnCourse::addOnCourse($onCourse)>= 1){
                 $this->success('添加成功','Dean/insertOnCourse','',1);

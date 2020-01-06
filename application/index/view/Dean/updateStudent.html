@@ -20,7 +20,7 @@
     });
 </script>
 <body>
-<form class="layui-form" action="{:url('Dean/doUpdateStudent')}" method="post" style="width: 350px;margin:20px auto;">
+<form class="layui-form" action="{:url('Dean/doUpdateStudent')}" method="post" style="width: 400px;margin:20px auto;">
     <div class="layui-form-item">
         <label class="layui-form-label">学号</label>
         <div class="layui-inline">
@@ -79,18 +79,29 @@
             <input type="text" name="studentAge" value="{$student.studentAge}" class="layui-input">
         </div>
     </div>
+<!--    <div class="layui-form-item">-->
+<!--        <label class="layui-form-label">性别</label>-->
+<!--        <div class="layui-inline">-->
+<!--            <input type="text" name="studentSex" value="{$student.studentSex}" class="layui-input">-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="layui-form-item">
-        <label class="layui-form-label">性别</label>
         <div class="layui-inline">
-            <input type="text" name="studentSex" value="{$student.studentSex}" class="layui-input">
+            <label class="layui-form-label">性别</label>
+            <div class="layui-inline">
+                <select name="studentSex" lay-verify="required">
+                    <option value="男" {$student.studentSex=='男'?'selected':''}>男</option>
+                    <option value="女" {$student.studentSex=='女'?'selected':''}>女</option>
+                </select>
+            </div>
         </div>
     </div>
-
 
     <div class="layui-form-item">
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit lay-filter="formDemo">提交修改</button>
-            <a href="{:url('Dean/findstudent')}">
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            <a href="{:url('Dean/findStudent')}">
                 <button type="button" class="layui-btn layui-btn-primary">后退</button>
             </a>
         </div>

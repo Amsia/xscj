@@ -16,6 +16,11 @@
     layui.use(['layer', 'form'], function(){
         var layer = layui.layer
             ,form = layui.form;
+        form.verify({
+            termVerify: [
+                /\d{5}/,'请输入正确的格式如：20192'
+            ]
+        })
         // layer.msg('学生成绩管理系统-叶广宇，沈尧');
     });
 </script>
@@ -23,15 +28,22 @@
 <form class="layui-form" action="{:url('dean/doUpdateOnCourse')}" method="post" style="width:1200px ;margin: 20px auto;">
     <div class="layui-form-item">
         <div class="layui-inline">
+            <div class="layui-inline">
             <label class="layui-form-label">开课编号</label>
             <div class="layui-inline">
                 <input type="text" name="onCourseId" placeholder="请输入开课编号" autocomplete="off"
                        class="layui-input" value="{$onCourse.onCourseId}">
             </div>
-            <label class="layui-inline">教师编号</label>
+            </div>
             <div class="layui-inline">
-                <input type="text" name="teacherId" placeholder="请输入教师编号" autocomplete="off"
-                       class="layui-input" value="{$onCourse.teacherId}">
+                <label class="layui-form-label">教师编号</label>
+                <div class="layui-inline">
+                    <select name="teacherId" required lay-verify="required">
+                        {volist name="teacherList" id="a"}
+                        <option value="{$a.teacherId}" {$onCourse.teacherId==$a.teacherId?'selected':''}>{$a.teacherId}:{$a.teacherName}</option>
+                        {/volist}
+                    </select>
+                </div>
             </div>
         </div>
     </div>
@@ -40,7 +52,6 @@
             <label class="layui-form-label">考试形式</label>
             <div class="layui-inline">
                 <select name="examFormId" value="{$onCourse.examFormId}">
-                    <option value="">空</option>
                     {volist name="examFormList" id="a"}
                     <option value="{$a.examFormId}" {$onCourse.examFormId==$a.examFormId?'selected':''}>{$a.examFormName}</option>
                     {/volist}
@@ -75,7 +86,7 @@
             </div>
             <label class="layui-inline">学期</label>
             <div class="layui-inline">
-                <input type="text" name="term" placeholder="请输入学期" autocomplete="off"
+                <input type="text" name="term" placeholder="请输入学期" autocomplete="off" required lay-verify="required|termVerify|number"
                        class="layui-input" value="{$onCourse.term}">
             </div>
             <label class="layui-inline">上课教室</label>

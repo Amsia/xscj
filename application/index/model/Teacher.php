@@ -17,7 +17,7 @@ class Teacher{
 	}	
 	public static function findAll()
 	{
-		return Db::table('teacher')->paginate(20);
+		return Db::table('teacher')->select();
 	}
 	public static function deleteById($teacherId){
 		return Db::table('teacher')->where('teacherId',$teacherId)->delete();
@@ -43,6 +43,9 @@ class Teacher{
 		}
 		if(!empty($teacher['password'])){
 			$setField['password'] = $teacher['password'];
+		}
+		if(!empty($teacher['teacherSex'])){
+			$setField['teacherSex'] = $teacher['teacherSex'];
 		}
 		return Db::table('teacher')->where('teacherId',$teacher['teacherId'])->setField($setField);
 	}

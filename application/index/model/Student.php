@@ -50,6 +50,7 @@ class Student
 		if(!empty($student['studentId'])){
 			$where['studentId'] = ['like','%'.$student['studentId']."%"];
 		}
+		
 		return Db::table('student')->join('class','student.classId=class.classId ')->join('major','student.majorId=major.majorId')->join('college','student.collegeId=college.collegeId')->where($where)->select();
 	}
 	public static function studentFindGrade($studentId)
@@ -93,6 +94,9 @@ class Student
 		}
 		if(!empty($student['password'])){
 			$setField['password'] = $student['password'];
+		}
+		if(!empty($student['studentSex'])){
+			$where['studentSex'] = $student['studentSex'];
 		}
 		return Db::table('student')->where('studentId',$student['studentId'])->setField($setField);
 	}

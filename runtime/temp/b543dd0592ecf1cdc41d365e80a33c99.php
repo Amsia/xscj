@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"D:\wamp64\www\xscj\public/../application/index\view\Dean\insertStudent.html";i:1578121156;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"D:\wamp64\www\xscj\public/../application/index\view\Dean\insertStudent.html";i:1578294256;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,8 +55,10 @@
         <div class="layui-inline">
             <label class="layui-form-label">性别</label>
             <div class="layui-inline">
-                <input type="text" name="studentSex" required  lay-verify="required" placeholder="请输入性别" autocomplete="off"
-                       class="layui-input">
+                <select name="studentSex" lay-verify="required">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
             </div>
         </div>
     </div>
