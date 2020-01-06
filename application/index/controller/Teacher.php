@@ -6,6 +6,7 @@ use app\index\model\Achievement;
 use app\index\model\AchievementDetail;
 use app\index\model\OnCourse;
 use think\Controller;
+use think\Exception;
 use think\Request;
 
 
@@ -57,7 +58,10 @@ class Teacher extends Controller
     {
         $onCourse = input('post.');
 //        OnCourse::updateOnCourse($onCourse);
-        OnCourse::updateOnCourseGrade($onCourse);
+
+        try{OnCourse::updateOnCourseGrade($onCourse);}catch (Exception $exception){
+            $this->error("更新出错,请检查填写内容",'Teacher/index');
+        }
         $this->success("更新成功！",'Teacher/index','','1');
     }
 
@@ -131,7 +135,11 @@ class Teacher extends Controller
             }else{
                 $achievementDetail['oral'] = 0;
             }
-            AchievementDetail::updateAchievementDetail($achievementDetail);
+            try{AchievementDetail::updateAchievementDetail($achievementDetail);}
+            catch (Exception $exception){
+                $this->error("更新出错,请检查返回数据");
+            }
+
         }
         $this->success('提交成功','Teacher/index','','1');
     }
