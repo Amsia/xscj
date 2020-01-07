@@ -48,7 +48,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">性别</label>
                 <div class="layui-inline">
-                    <select name="studentSex" lay-verify="required">
+                    <select name="studentSex" lay-verify="required|number">
                         <option value="男">男</option>
                         <option value="女">女</option>
                     </select>
@@ -59,7 +59,7 @@
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit lay-filter="formDemo">插入</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            <a href="{:url('/dean')}">
+            <a href="{:url('/findTeacher')}">
                 <button type="button" class="layui-btn layui-btn-primary">后退</button>
             </a>
         </div>

@@ -1,10 +1,11 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findCourse.html";i:1578406905;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>课程查找结果</title>
-    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
-    <script src="__STATIC__/layui/layui.js"></script>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script src="/static/layui/layui.js"></script>
 </head>
 <script type="text/javascript">
     layui.use('element', function() {
@@ -21,7 +22,7 @@
 </script>
 <body>
 <div id="test">
-    <form class="layui-form" action="{:url('/findCourse')}" method="post" style="width: 600px;margin: 20px auto;">
+    <form class="layui-form" action="<?php echo url('/findCourse'); ?>" method="post" style="width: 600px;margin: 20px auto;">
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">课程编号</label>
@@ -62,23 +63,23 @@
         </tr>
         </thead>
         <tbody>
-            {volist name="courseList" id="a"}
+            <?php if(is_array($courseList) || $courseList instanceof \think\Collection || $courseList instanceof \think\Paginator): $i = 0; $__LIST__ = $courseList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
             <tr>
-                <td>{$a.courseId}</td>
-                <td>{$a.courseName}</td>
-                <td>{$a.classHour}</td>
-                <td>{$a.credit}</td>
-                <td><a href="{:url('/updateCourse',['courseId'=>$a.courseId])}" class="layui-btn layui-btn-xs">修改  </a>
-                    <a href="{:url('/deleteCourse',['courseId'=>$a.courseId])}" class="layui-btn layui-btn-xs">删除 </a></td>
+                <td><?php echo $a['courseId']; ?></td>
+                <td><?php echo $a['courseName']; ?></td>
+                <td><?php echo $a['classHour']; ?></td>
+                <td><?php echo $a['credit']; ?></td>
+                <td><a href="<?php echo url('/updateCourse',['courseId'=>$a['courseId']]); ?>" class="layui-btn layui-btn-xs">修改  </a>
+                    <a href="<?php echo url('/deleteCourse',['courseId'=>$a['courseId']]); ?>" class="layui-btn layui-btn-xs">删除 </a></td>
             </tr>
-            {/volist}
+            <?php endforeach; endif; else: echo "" ;endif; ?>
         </tbody>
     </table>
 
-    <a href="{:url('/dean')}" style="float: right;margin-right: 10%;">
+    <a href="<?php echo url('/dean'); ?>" style="float: right;margin-right: 10%;">
         <button type="button" class="layui-btn layui-btn-primary">后退</button>
     </a>
-    <a href="{:url('/insertCourse')}" class="layui-btn" style="float: right;margin-right:20px;">添加一门课程</a>
+    <a href="<?php echo url('/insertCourse'); ?>" class="layui-btn" style="float: right;margin-right:20px;">添加一门课程</a>
 </div>
 </body>
 </html>

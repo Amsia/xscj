@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findTeacher.html";i:1578378804;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findTeacher.html";i:1578406512;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -22,6 +22,36 @@
 </script>
 <body>
 <div id="test">
+
+    <form class="layui-form" action="<?php echo url('/findTeacher'); ?>" method="post" style="width: 600px;margin: 20px auto;">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">教师编号</label>
+                <div class="layui-inline">
+                    <input type="text" name="teacherId" placeholder="请输入教师编号" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">姓名</label>
+                <div class="layui-inline">
+                    <input type="text" name="teacherName" placeholder="请输入姓名" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">查询教师</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <hr>
+
     <table class="layui-table" style="width: 80%;margin-left: 10%;">
         <colgroup>
             <col width="150">
@@ -55,6 +85,7 @@
     <a href="<?php echo url('/dean'); ?>" style="float: right;margin-right: 10%;">
         <button type="button" class="layui-btn layui-btn-primary">后退</button>
     </a>
+    <a href="<?php echo url('/insertTeacher'); ?>" class="layui-btn" style="float: right;margin-right: 20px;">添加一名教师</a>
 </div>
 </body>
 </html>

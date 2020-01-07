@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findOnCourse.html";i:1578378790;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findOnCourse.html";i:1578407346;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +21,89 @@
     });
 </script>
 <body>
+<form class="layui-form" action="<?php echo url('/findOnCourse'); ?>" method="post" style="width: 1300px; margin: 20px auto;">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">开课编号</label>
+            <div class="layui-inline">
+                <input type="text" name="onCourseId" placeholder="请输入开课编号" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <label class="layui-inline">教师编号</label>
+            <div class="layui-inline">
+                <input type="text" name="teacherId" placeholder="请输入教师编号" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">考试形式</label>
+            <div class="layui-inline">
+                <select name="examFormId">
+                    <option value="">空</option>
+                    <?php if(is_array($examFormList) || $examFormList instanceof \think\Collection || $examFormList instanceof \think\Paginator): $i = 0; $__LIST__ = $examFormList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
+                    <option value="<?php echo $a['examFormId']; ?>"><?php echo $a['examFormName']; ?></option>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
+            </div>
+            <label class="layui-inline">考试性质</label>
+            <div class="layui-inline">
+                <select name="natureId">
+                    <option value="">空</option>
+                    <?php if(is_array($examNatureList) || $examNatureList instanceof \think\Collection || $examNatureList instanceof \think\Paginator): $i = 0; $__LIST__ = $examNatureList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
+                    <option value="<?php echo $a['natureId']; ?>"><?php echo $a['natureName']; ?></option>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
+            </div>
+            <label class="layui-inline">修习类别</label>
+            <div class="layui-inline">
+                <select name="electiveId">
+                    <option value="">空</option>
+                    <?php if(is_array($electiveList) || $electiveList instanceof \think\Collection || $electiveList instanceof \think\Paginator): $i = 0; $__LIST__ = $electiveList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
+                    <option value="<?php echo $a['electiveId']; ?>"><?php echo $a['electiveName']; ?></option>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
+            </div>
+            <label class="layui-inline">成绩制度</label>
+            <div class="layui-inline">
+                <select name="showFormId">
+                    <option value="">空</option>
+                    <?php if(is_array($showFormList) || $showFormList instanceof \think\Collection || $showFormList instanceof \think\Paginator): $i = 0; $__LIST__ = $showFormList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
+                    <option value="<?php echo $a['showFormId']; ?>"><?php echo $a['showFormName']; ?></option>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">课程编号</label>
+            <div class="layui-inline">
+                <input type="text" name="courseId" placeholder="课程编号" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <label class="layui-inline">学期</label>
+            <div class="layui-inline">
+                <input type="text" name="term" placeholder="请输入学期" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <label class="layui-inline">上课教室</label>
+            <div class="layui-inline">
+                <input type="text" name="classroom" placeholder="上课教室" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">查询已开课</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<br>
+<hr>
     <table class="layui-table" style="width: 1520px;margin-left: 8px;">
         <colgroup>
             <col width="100">
@@ -83,5 +166,7 @@
     <a href="<?php echo url('/dean'); ?>" style="float: right;margin-right: 10%;">
         <button type="button" class="layui-btn layui-btn-primary">后退</button>
     </a>
+
+<a href="<?php echo url('/insertOnCourse'); ?>" class="layui-btn" style="float: right;margin-right: 20px;">开启一门课程</a>
 </body>
 </html>

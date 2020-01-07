@@ -45,7 +45,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">年龄</label>
             <div class="layui-inline">
-                <input type="text" name="studentAge" required  lay-verify="required" placeholder="请输入年龄" autocomplete="off"
+                <input type="text" name="studentAge" required  lay-verify="required|number" placeholder="请输入年龄" autocomplete="off"
                        class="layui-input">
             </div>
         </div>
@@ -103,8 +103,7 @@
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit lay-filter="formDemo">插入学生</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-<!--            <button type="button" onclick="history.go(-1)" class="layui-btn layui-btn-primary">后退</button>-->
-            <a href="{:url('/dean')}">
+            <a href="{:url('/findStudent')}">
                 <button type="button" class="layui-btn layui-btn-primary">后退</button>
             </a>
         </div>

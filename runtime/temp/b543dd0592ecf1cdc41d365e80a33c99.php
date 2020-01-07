@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"D:\wamp64\www\xscj\public/../application/index\view\Dean\insertStudent.html";i:1578376820;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"D:\wamp64\www\xscj\public/../application/index\view\Dean\insertStudent.html";i:1578405674;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +23,7 @@
 </script>
 <body>
 <br>
-<form class="layui-form" action="<?php echo url('Dean/doInsertStudent'); ?>" method="post" style="width: 400px; margin: 0 auto;">
+<form class="layui-form" action="<?php echo url('/doInsertStudent'); ?>" method="post" style="width: 400px; margin: 0 auto;">
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">学号</label>
@@ -46,7 +46,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">年龄</label>
             <div class="layui-inline">
-                <input type="text" name="studentAge" required  lay-verify="required" placeholder="请输入年龄" autocomplete="off"
+                <input type="text" name="studentAge" required  lay-verify="required|number" placeholder="请输入年龄" autocomplete="off"
                        class="layui-input">
             </div>
         </div>
@@ -104,8 +104,7 @@
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit lay-filter="formDemo">插入学生</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-<!--            <button type="button" onclick="history.go(-1)" class="layui-btn layui-btn-primary">后退</button>-->
-            <a href="<?php echo url('/dean'); ?>">
+            <a href="<?php echo url('/findStudent'); ?>">
                 <button type="button" class="layui-btn layui-btn-primary">后退</button>
             </a>
         </div>

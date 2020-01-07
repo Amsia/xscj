@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"D:\wamp64\www\xscj\public/../application/index\view\Dean\updateTeacher.html";i:1578294723;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"D:\wamp64\www\xscj\public/../application/index\view\Dean\updateTeacher.html";i:1578378836;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +21,7 @@
     });
 </script>
 <body>
-<form class="layui-form" action="<?php echo url('Dean/doUpdateTeacher'); ?>" method="post" style="width: 400px;margin: 0 auto;">
+<form class="layui-form" action="<?php echo url('/doUpdateTeacher'); ?>" method="post" style="width: 400px;margin: 0 auto;">
     <div class="layui-form-item">
         <label class="layui-form-label">教师编号</label>
         <div class="layui-input-inline">
@@ -57,7 +57,7 @@
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit lay-filter="formDemo">提交修改</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            <a href="<?php echo url('Dean/findTeacher'); ?>">
+            <a href="<?php echo url('/findTeacher'); ?>">
                 <button type="button" class="layui-btn layui-btn-primary">后退</button>
             </a>
         </div>

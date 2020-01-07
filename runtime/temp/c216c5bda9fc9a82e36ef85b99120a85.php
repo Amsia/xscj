@@ -1,9 +1,9 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\wamp64\www\xscj\public/../application/index\view\Dean\dean.html";i:1578378413;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\wamp64\www\xscj\public/../application/index\view\Dean\dean.html";i:1578408615;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>教师查找结果</title>
+    <title>教务员管理界面</title>
     <link rel="stylesheet" href="/static/layui/css/layui.css">
     <script src="/static/layui/layui.js"></script>
 </head>
@@ -64,7 +64,7 @@
         </div>
         <!-- 			查询学生信息------------------------------------------------------ -->
         <div class="layui-tab-item layui-show" >
-            <form class="layui-form" action="<?php echo url('/findStudent'); ?>" method="post">
+            <form class="layui-form" action="<?php echo url('/findStudent'); ?>" method="post" style="">
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">学号</label>
@@ -362,46 +362,11 @@
             <br>
             <hr>
             <br>
-            <form class="layui-form" action="<?php echo url('/insertClass'); ?>" method="post">
-                <div class="layui-form-item">
-                    <div class="inline">
-                        <label class="layui-form-label">专业</label>
-                        <div class="layui-inline">
-                            <select required lay-verify="required" name="majorId">
-<!--                                <option value="">空</option>-->
-                                <?php if(is_array($majorList) || $majorList instanceof \think\Collection || $majorList instanceof \think\Paginator): $i = 0; $__LIST__ = $majorList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
-                                <option value="<?php echo $a['majorId']; ?>"><?php echo $a['majorName']; ?></option>
-                                <?php endforeach; endif; else: echo "" ;endif; ?>
-                            </select>
-                        </div>
-                    </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <a href="<?php echo url('/insertClass'); ?>" class="layui-btn">添加新的班级</a>
                 </div>
-                <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">班级编号</label>
-                        <div class="layui-inline">
-                            <input type="text" name="classId" required lay-verify="required" placeholder="请输入班级编号" autocomplete="off"
-                                   class="layui-input">
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">班级名</label>
-                        <div class="layui-inline">
-                            <input type="text" name="className" required lay-verify="required" placeholder="请输入班级名" autocomplete="off"
-                                   class="layui-input">
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit lay-filter="formDemo">添加班级</button>
-                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                    </div>
-                </div>
-            </form>
-
+            </div>
 
         </div>
     </div>

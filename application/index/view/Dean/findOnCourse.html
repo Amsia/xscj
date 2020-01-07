@@ -20,6 +20,89 @@
     });
 </script>
 <body>
+<form class="layui-form" action="{:url('/findOnCourse')}" method="post" style="width: 1300px; margin: 20px auto;">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">开课编号</label>
+            <div class="layui-inline">
+                <input type="text" name="onCourseId" placeholder="请输入开课编号" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <label class="layui-inline">教师编号</label>
+            <div class="layui-inline">
+                <input type="text" name="teacherId" placeholder="请输入教师编号" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">考试形式</label>
+            <div class="layui-inline">
+                <select name="examFormId">
+                    <option value="">空</option>
+                    {volist name="examFormList" id="a"}
+                    <option value="{$a.examFormId}">{$a.examFormName}</option>
+                    {/volist}
+                </select>
+            </div>
+            <label class="layui-inline">考试性质</label>
+            <div class="layui-inline">
+                <select name="natureId">
+                    <option value="">空</option>
+                    {volist name="examNatureList" id="a"}
+                    <option value="{$a.natureId}">{$a.natureName}</option>
+                    {/volist}
+                </select>
+            </div>
+            <label class="layui-inline">修习类别</label>
+            <div class="layui-inline">
+                <select name="electiveId">
+                    <option value="">空</option>
+                    {volist name="electiveList" id="a"}
+                    <option value="{$a.electiveId}">{$a.electiveName}</option>
+                    {/volist}
+                </select>
+            </div>
+            <label class="layui-inline">成绩制度</label>
+            <div class="layui-inline">
+                <select name="showFormId">
+                    <option value="">空</option>
+                    {volist name="showFormList" id="a"}
+                    <option value="{$a.showFormId}">{$a.showFormName}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">课程编号</label>
+            <div class="layui-inline">
+                <input type="text" name="courseId" placeholder="课程编号" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <label class="layui-inline">学期</label>
+            <div class="layui-inline">
+                <input type="text" name="term" placeholder="请输入学期" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <label class="layui-inline">上课教室</label>
+            <div class="layui-inline">
+                <input type="text" name="classroom" placeholder="上课教室" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">查询已开课</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<br>
+<hr>
     <table class="layui-table" style="width: 1520px;margin-left: 8px;">
         <colgroup>
             <col width="100">
@@ -82,5 +165,7 @@
     <a href="{:url('/dean')}" style="float: right;margin-right: 10%;">
         <button type="button" class="layui-btn layui-btn-primary">后退</button>
     </a>
+
+<a href="{:url('/insertOnCourse')}" class="layui-btn" style="float: right;margin-right: 20px;">开启一门课程</a>
 </body>
 </html>

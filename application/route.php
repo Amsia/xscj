@@ -45,6 +45,7 @@ Route::rule('doInsertTeacher','index/Dean/doInsertTeacher');
 Route::rule('doInsertStudentOnCourse','index/Dean/doInsertStudentOnCourse');
 Route::rule('doInsertCourse','index/Dean/doInsertCourse');
 Route::rule('doInsertOnCourse','index/Dean/doInsertOnCourse');
+Route::rule('doInsertClass','index/Dean/doInsertClass');
 
 Route::rule('updateStudent','index/Dean/updateStudent');
 Route::rule('updateTeacher','index/Dean/updateTeacher');

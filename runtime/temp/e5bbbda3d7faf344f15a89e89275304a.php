@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\wamp64\www\xscj\public/../application/index\view\Dean\insertOnCourse.html";i:1578295911;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\wamp64\www\xscj\public/../application/index\view\Dean\insertOnCourse.html";i:1578407374;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +43,7 @@
 
 <body>
 <br>
-<form class="layui-form" action="<?php echo url('dean/doInsertOnCourse'); ?>" method="post">
+<form class="layui-form" action="<?php echo url('/doInsertOnCourse'); ?>" method="post">
     <div class="layui-form-item">
         <div class="layui-inline">
             <div class="layui-inline">
@@ -145,7 +145,7 @@
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit lay-filter="formDemo">开课</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            <a href="<?php echo url('Dean/index'); ?>">
+            <a href="<?php echo url('/findOnCourse'); ?>">
                 <button type="button" class="layui-btn layui-btn-primary">后退</button>
             </a>
         </div>

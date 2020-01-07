@@ -52,8 +52,13 @@ class Dean extends Controller
     public function findStudent()
     {
         $student = input('post.');
+        $classList = Classes::findAll();
+        $majorList = Major::findAll();
         $list = Student::findLike($student);
         $this->assign('list',$list);
+        $this->assign("classList",$classList);
+        $this->assign("majorList",$majorList);
+
         return $this->fetch('Dean/findStudent');
     }
     public function findTeacher()
@@ -68,6 +73,22 @@ class Dean extends Controller
     {
         $onCourse = input('post.');
         $onCourseList = OnCourse::findLike($onCourse);
+        $classList = Classes::findAll();
+        $majorList = Major::findAll();
+        $collegeList = College::findAll();
+        $examNatureList=ExamNature::findAll();
+        $showFormList=ShowForm::findAll();
+        $electiveList=OnCourse::findAllElective();
+        $examFormList=ExamForm::findAll();
+        $courseList=Course::findAll();
+        $this->assign("classList",$classList);
+        $this->assign("majorList",$majorList);
+        $this->assign("collegeList",$collegeList);
+        $this->assign("examNatureList",$examNatureList);
+        $this->assign("showFormList",$showFormList);
+        $this->assign("electiveList",$electiveList);
+        $this->assign("examFormList",$examFormList);
+        $this->assign("courseList",$courseList);
         $this->assign('onCourseList',$onCourseList);
         return $this->fetch('Dean/findOnCourse');
     }
@@ -91,6 +112,10 @@ class Dean extends Controller
     public function findClass()
     {
         $class = input('post.');
+        $majorList = Major::findAll();
+        $classList = Classes::findAll();
+        $this->assign("classList",$classList);
+        $this->assign("majorList",$majorList);
         $classList = Classes::findLike($class);
         $this->assign('classList',$classList);
         return $this->fetch('Dean/findClass');
@@ -375,27 +400,18 @@ class Dean extends Controller
 
     public function insertClass()
     {
-        $class = input('post.');
-
-        try{
-            if (Classes::addClass($class)>=1){
-                $this->success('添加成功','/dean','',1);
-            }else{
-                $this->error('添加失败','/dean','',1);
-            }
-        }catch (Exception $exception){
-            $this->error("添加失败，请检查是否有重复键",'/dean','',1);
-        }
+        $majorList = Major::findAll();
+        $this->assign('majorList',$majorList);
+        return $this->fetch('Dean/insertClass');
     }
     //----------------------doInsert---------------------------
     public function doInsertStudent()
     {
         $student = input('post.');
-//        dump($student);
         $student['password']=$student['studentId'];
         try{
             if (Student::addStudent($student)==1){
-                $this->success('插入成功');
+                $this->success('插入成功','/insertStudent','',1);
             }else{
                 $this->error("插入学生发生错误,请检查");
             }
@@ -445,8 +461,6 @@ class Dean extends Controller
         }else{
             $this->error("添加错误，请假查",'/findOnCourse','',1);
         }
-//        $this->success('添加成功','/findOnCourse','',1);
-        dump($data);
         $url = "/insertStudentOnCourse/onCourseId/".$data['onCourseId'];
         $this->success('添加成功',$url,'',1);
     }
@@ -476,6 +490,20 @@ class Dean extends Controller
             }
         }catch (Exception $exception){
             $this->error("插入发生错误,请检查");
+        }
+    }
+    public function doInsertClass()
+    {
+        $class = input('post.');
+
+        try{
+            if (Classes::addClass($class)>=1){
+                $this->success('添加成功','/insertClass','',1);
+            }else{
+                $this->error('添加失败','/insertClass','',1);
+            }
+        }catch (Exception $exception){
+            $this->error("添加失败，请检查是否有重复键",'/insertClass','',1);
         }
     }
 
