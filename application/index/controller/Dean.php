@@ -45,7 +45,7 @@ class Dean extends Controller
 
             return $this->fetch('Dean/dean');
         }else{
-            $this->error("请重新登录账号",'index/index');
+            $this->error("请重新登录账号",'/');
         }
     }
     //----------------------Find---------------------------
@@ -167,7 +167,7 @@ class Dean extends Controller
         }catch (Exception $exception){
             $this->error("更新出错,请假查错误");
         }
-        $this->success('修改成功','Dean/findStudent','',1);
+        $this->success('修改成功','/findStudent','',1);
     }
 
     public function doUpdateTeacher()
@@ -178,7 +178,7 @@ class Dean extends Controller
         }catch (Exception $exception){
             $this->error("更新出错,请假查错误");
         }
-        $this->success('修改成功','Dean/findTeacher','',1);
+        $this->success('修改成功','/findTeacher','',1);
     }
 
     public function doUpdateOnCourse()
@@ -189,7 +189,7 @@ class Dean extends Controller
         }catch (Exception $exception){
             $this->error("更新出错,请假查错误");
         }
-        $this->success('修改成功','Dean/findOnCourse','','1');
+        $this->success('修改成功','/findOnCourse','','1');
     }
 
     public function doUpdateCourse()
@@ -200,7 +200,7 @@ class Dean extends Controller
         }catch (Exception $exception){
             $this->error("更新出错,请假查错误");
         }
-        $this->success('修改成功','Dean/findCourse','',1);
+        $this->success('修改成功','/findCourse','',1);
     }
 
     public function doUpdateClass()
@@ -211,7 +211,7 @@ class Dean extends Controller
         }catch (Exception $exception){
             $this->error("更新出错,请假查错误");
         }
-        $this->success("修改成功",'Dean/findClass','',1);
+        $this->success("修改成功",'/findClass','',1);
     }
 
     //----------------------delete---------------------------
@@ -221,12 +221,12 @@ class Dean extends Controller
         try{
             if(Student::deleteById($studentId)>0)
             {
-                $this->success("删除成功",'Dean/findStudent','','1');
+                $this->success("删除成功",'/findStudent','','1');
             }else{
-                $this->error("删除出现未知错误,请重新加载页面",'Dean/findStudent');
+                $this->error("删除出现未知错误,请重新加载页面",'/findStudent');
             }
         }catch (Exception $exception){
-            $this->error("删除出现未知错误,请重新加载页面",'Dean/findStudent');
+            $this->error("删除出现未知错误,请重新加载页面",'/findStudent');
         }
     }
 
@@ -235,12 +235,12 @@ class Dean extends Controller
         $teacherId = input('teacherId');
         try{
             if (Teacher::deleteById($teacherId)>0){
-                $this->success("删除成功",'Dean/findTeacher','','1');
+                $this->success("删除成功",'/findTeacher','','1');
             }else{
-                $this->error("删除出现未知错误,请重新加载页面",'Dean/findTeacher');
+                $this->error("删除出现未知错误,请重新加载页面",'/findTeacher');
             }
         }catch (Exception $exception){
-            $this->error("删除出现未知错误,请重新加载页面",'Dean/findTeacher');
+            $this->error("删除出现未知错误,请重新加载页面",'/findTeacher');
         }
     }
 
@@ -249,12 +249,12 @@ class Dean extends Controller
         $onCourseId = input('onCourseId');
         try{
             if (OnCourse::deleteById($onCourseId)>0){
-                $this->success("删除成功",'Dean/findOnCourse','','1');
+                $this->success("删除成功",'/findOnCourse','','1');
             }else{
-                $this->error("删除出现未知错误,请重新加载页面",'Dean/findOnCourse');
+                $this->error("删除出现未知错误,请重新加载页面",'/findOnCourse');
             }
         }catch (Exception $exception){
-            $this->error("删除出现未知错误,请重新加载页面",'Dean/findOnCourse');
+            $this->error("删除出现未知错误,请重新加载页面",'/findOnCourse');
         }
     }
 
@@ -274,11 +274,12 @@ class Dean extends Controller
                 $achievementDetail['studentId']=$data['id'];
                 AchievementDetail::deleteById($achievementDetail);
             }else{
-                $this->error("插入错误,请检查数据是否正确",'Dean/findOnCourse','',1);
+                $this->error("插入错误,请检查数据是否正确",'/findOnCourse','',1);
             }
-            $this->success('删除成功','Dean/findOnCourse','',1);
+            $url = "/insertStudentOnCourse/onCourseId/".$data['onCourseId'];
+            $this->success('删除成功',$url,'',1);
         }catch (Exception $exception){
-            $this->error("删除出现未知错误,请重新加载页面",'Dean/findOnCourse');
+            $this->error("删除出现未知错误,请重新加载页面",'/findOnCourse');
         }
     }
 
@@ -287,12 +288,12 @@ class Dean extends Controller
         $courseId = input('courseId');
         try{
             if (Course::deleteById($courseId)>0){
-                $this->success('删除成功','Dean/findCourse','',1);
+                $this->success('删除成功','/findCourse','',1);
             }else{
-                $this->error('删除出错','Dean/findCourse','',1);
+                $this->error('删除出错','/findCourse','',1);
             }
         }catch (Exception $exception){
-            $this->error("删除出现未知错误,请重新加载页面",'Dean/findCourse');
+            $this->error("删除出现未知错误,请重新加载页面",'/findCourse');
         }
     }
 
@@ -302,12 +303,12 @@ class Dean extends Controller
         try{
 
             if (Classes::deleteById($classId)>=1){
-                $this->success('删除成功','Dean/findClass','',1);
+                $this->success('删除成功','/findClass','',1);
             }else{
-                $this->error('删除失败','Dean/findClass','',1);
+                $this->error('删除失败','/findClass','',1);
             }
         }catch (Exception $exception){
-            $this->error("删除出现未知错误,请重新加载页面",'Dean/findClass');
+            $this->error("删除出现未知错误,请重新加载页面",'/findClass');
         }
     }
     //----------------------insert---------------------------
@@ -328,9 +329,11 @@ class Dean extends Controller
        return $this->fetch('Dean/insertTeacher');
     }
 
-    public function insertStudentOnCourse(Request $request)
+    public function insertStudentOnCourse($onCourseId)
     {
-        $onCourseId = input('onCourseId');
+//        echo "test";
+//        dump($onCourseId);
+//        $onCourseId = input('onCourseId');
         $classList = Classes::findAll();
         $achievementDetail = AchievementDetail::findById($onCourseId);
         $this->assign('onCourseId',$onCourseId);
@@ -373,10 +376,15 @@ class Dean extends Controller
     public function insertClass()
     {
         $class = input('post.');
-        if (Classes::addClass($class)>=1){
-            $this->success('添加成功','Dean/index','',1);
-        }else{
-            $this->error('添加失败','Dean/index','',1);
+
+        try{
+            if (Classes::addClass($class)>=1){
+                $this->success('添加成功','/dean','',1);
+            }else{
+                $this->error('添加失败','/dean','',1);
+            }
+        }catch (Exception $exception){
+            $this->error("添加失败，请检查是否有重复键",'/dean','',1);
         }
     }
     //----------------------doInsert---------------------------
@@ -401,7 +409,7 @@ class Dean extends Controller
         $teacher['password']=$teacher['teacherId'];
         try{
             if (Teacher::addTeacher($teacher)==1){
-                $this->success("插入成功",'Dean/insertTeacher','',1);
+                $this->success("插入成功",'/insertTeacher','',1);
             }else{
                 $this->error("插入发生错误,请检查");
             }
@@ -422,7 +430,7 @@ class Dean extends Controller
                 try{AchievementDetail::addAchievementDetail($achievementDetail);}
                 catch (Exception $exception)
                 {
-                    $this->error("添加错误,学生已存在或不能为空",'Dean/findOnCourse','',1);
+                    $this->error("添加错误,学生已存在或不能为空",'/findOnCourse','',1);
                 }
             }
         }elseif ($data['role']=='student'){
@@ -431,13 +439,16 @@ class Dean extends Controller
                 try{AchievementDetail::addAchievementDetail($achievementDetail);}
                 catch (Exception $exception)
                 {
-                    $this->error("添加错误,学生已存在或不能为空",'Dean/findOnCourse','',1);
+                    $this->error("添加错误,学生已存在或不能为空",'/findOnCourse','',1);
                 }
 
         }else{
-            $this->error("添加错误，请假查",'Dean/findOnCourse','',1);
+            $this->error("添加错误，请假查",'/findOnCourse','',1);
         }
-        $this->success('添加成功','Dean/findOnCourse','',1);
+//        $this->success('添加成功','/findOnCourse','',1);
+        dump($data);
+        $url = "/insertStudentOnCourse/onCourseId/".$data['onCourseId'];
+        $this->success('添加成功',$url,'',1);
     }
 
     public function doInsertCourse()
@@ -445,9 +456,9 @@ class Dean extends Controller
         $course = input('post.');
         try{
             if (Course::addCourse($course)>=1){
-                $this->success('添加成功','Dean/insertCourse','',1);
+                $this->success('添加成功','/insertCourse','',1);
             }else{
-                $this->error('添加错误，请检查','Dean/insertCourse','',1);
+                $this->error('添加错误，请检查','/insertCourse','',1);
             }
         }catch (Exception $exception){
             $this->error("插入发生错误,请检查");
@@ -459,9 +470,9 @@ class Dean extends Controller
         $onCourse = input('post.');
         try{
             if (OnCourse::addOnCourse($onCourse)>= 1){
-                $this->success('添加成功','Dean/insertOnCourse','',1);
+                $this->success('添加成功','/insertOnCourse','',1);
             }else{
-                $this->error('添加错误，请检查','Dean/insertOnCourse','',1);
+                $this->error('添加错误，请检查','/insertOnCourse','',1);
             }
         }catch (Exception $exception){
             $this->error("插入发生错误,请检查");

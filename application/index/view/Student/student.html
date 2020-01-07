@@ -25,7 +25,7 @@
         <li >个人信息</li>
         <li class="layui-this">我的课程成绩</li>
         <div style="margin-right: 20px;float:right">
-            <a class="layui-btn layui-btn-xs" href="{:url('Admin/logout')}">注销账号</a>
+            <a class="layui-btn layui-btn-xs" href="{:url('/logout')}">注销账号</a>
         </div>
     </ul>
 
@@ -63,8 +63,8 @@
                     <td >{$student['className']}</td>
                     <td>{$student['collegeName']}</td>
 
-                    <td><a class="layui-btn layui-btn-xs" href="{:url('Admin/changePwd')}">更改密码</a>
-                        <a class="layui-btn layui-btn-xs" href="{:url('Admin/logout')}">注销账号</a>
+                    <td><a class="layui-btn layui-btn-xs" href="{:url('/changePwd')}">更改密码</a>
+                        <a class="layui-btn layui-btn-xs" href="{:url('/logout')}">注销账号</a>
                     </td>
                 </tr>
                 </tbody>

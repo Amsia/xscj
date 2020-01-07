@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\wamp64\www\xscj\public/../application/index\view\Admin\login.html";i:1577975080;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\wamp64\www\xscj\public/../application/index\view\Admin\login.html";i:1578301583;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -25,7 +25,7 @@
     <img src="/static/image/header.png" alt="login_headimage" id="login_headimage"/>
 </div>
 <center id="login_form">
-    <form class="layui-form" action="<?php echo url('Admin/login'); ?>" method="post" >
+    <form class="layui-form" action="<?php echo url('/login'); ?>" method="post" >
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">账号</label>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\wamp64\www\xscj\public/../application/index\view\Dean\insertCourse.html";i:1578209162;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\wamp64\www\xscj\public/../application/index\view\Dean\insertCourse.html";i:1578376820;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +55,7 @@
         <div class="">
             <button class="layui-btn" lay-submit lay-filter="formDemo">插入新的课程</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            <a href="<?php echo url('Dean/index'); ?>">
+            <a href="<?php echo url('/dean'); ?>">
                 <button type="button" class="layui-btn layui-btn-primary">后退</button>
             </a>
         </div>

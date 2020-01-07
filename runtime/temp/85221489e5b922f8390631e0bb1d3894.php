@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findClass.html";i:1578214334;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findClass.html";i:1578378758;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,13 +39,13 @@
                 <td><?php echo $a['majorName']; ?></td>
                 <td><?php echo $a['classId']; ?></td>
                 <td><?php echo $a['className']; ?></td>
-                <td><a href="<?php echo url('dean/updateClass',['classId'=>$a['classId']]); ?>" class="layui-btn-xs layui-btn">修改 </a>
-                    <a href="<?php echo url('dean/deleteClass',['classId'=>$a['classId']]); ?>" class="layui-btn-xs layui-btn">删除 </a></td>
+                <td><a href="<?php echo url('/updateClass',['classId'=>$a['classId']]); ?>" class="layui-btn-xs layui-btn">修改 </a>
+                    <a href="<?php echo url('/deleteClass',['classId'=>$a['classId']]); ?>" class="layui-btn-xs layui-btn">删除 </a></td>
             </tr>
             <?php endforeach; endif; else: echo "" ;endif; ?>
         </tbody>
     </table>
-    <a href="<?php echo url('Dean/index'); ?>" style="float: right;margin-right: 10%;">
+    <a href="<?php echo url('/dean'); ?>" style="float: right;margin-right: 10%;">
         <button type="button" class="layui-btn layui-btn-primary">后退</button>
     </a>
 </div>

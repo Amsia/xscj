@@ -1,10 +1,11 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findClassDetail.html";i:1578376761;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>查询班级成绩</title>
-    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
-    <script src="__STATIC__/layui/layui.js"></script>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script src="/static/layui/layui.js"></script>
 </head>
 <script type="text/javascript">
     layui.use('element', function() {
@@ -35,18 +36,18 @@
         </tr>
         </thead>
         <tbody>
-        {volist name="totalSumsList" id="a"}
+        <?php if(is_array($totalSumsList) || $totalSumsList instanceof \think\Collection || $totalSumsList instanceof \think\Paginator): $i = 0; $__LIST__ = $totalSumsList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
             <tr>
-                <td>{$a.onCourseId}</td>
-                <td>{$a.courseName}</td>
-                <td>{$a.avgGrade}</td>
-                <td>{$a.sum}</td>
-                <td>{$a.failSum}</td>
+                <td><?php echo $a['onCourseId']; ?></td>
+                <td><?php echo $a['courseName']; ?></td>
+                <td><?php echo $a['avgGrade']; ?></td>
+                <td><?php echo $a['sum']; ?></td>
+                <td><?php echo $a['failSum']; ?></td>
             </tr>
-        {/volist}
+        <?php endforeach; endif; else: echo "" ;endif; ?>
         </tbody>
     </table>
-    <a href="{:url('/dean')}" style="float: right;margin-right: 10%;">
+    <a href="<?php echo url('/dean'); ?>" style="float: right;margin-right: 10%;">
         <button type="button" class="layui-btn layui-btn-primary">后退</button>
     </a>
 </div>

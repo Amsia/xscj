@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\wamp64\www\xscj\public/../application/index\view\Dean\dean.html";i:1578215384;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\wamp64\www\xscj\public/../application/index\view\Dean\dean.html";i:1578378413;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -30,7 +30,7 @@
         <li>成绩管理</li>
         <li>班级管理</li>
         <div style="margin-right: 20px;float:right">
-            <a class="layui-btn layui-btn-xs" href="<?php echo url('Admin/logout'); ?>">注销账号</a>
+            <a class="layui-btn layui-btn-xs" href="<?php echo url('/logout'); ?>">注销账号</a>
         </div>
     </ul>
     <div class="layui-tab-content">
@@ -55,8 +55,8 @@
                     <td><?php echo $dean['deanName']; ?></td>
                     <td><?php echo $dean['deanAge']; ?></td>
                     <td><?php echo $dean['deanSex']; ?></td>
-                    <td><a class="layui-btn layui-btn-xs" href="<?php echo url('Admin/changePwd'); ?>">更改密码</a>
-                        <a class="layui-btn layui-btn-xs" href="<?php echo url('Admin/logout'); ?>">注销账号</a>
+                    <td><a class="layui-btn layui-btn-xs" href="<?php echo url('/changePwd'); ?>">更改密码</a>
+                        <a class="layui-btn layui-btn-xs" href="<?php echo url('/logout'); ?>">注销账号</a>
                     </td>
                 </tr>
                 </tbody>
@@ -64,7 +64,7 @@
         </div>
         <!-- 			查询学生信息------------------------------------------------------ -->
         <div class="layui-tab-item layui-show" >
-            <form class="layui-form" action="<?php echo url('findStudent'); ?>" method="post">
+            <form class="layui-form" action="<?php echo url('/findStudent'); ?>" method="post">
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">学号</label>
@@ -117,7 +117,7 @@
             <br>
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <a href="<?php echo url('dean/insertStudent'); ?>" class="layui-btn">添加一名学生</a>
+                    <a href="<?php echo url('/insertStudent'); ?>" class="layui-btn">添加一名学生</a>
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@
 
         <div class="layui-tab-item">
             <!-- 			查询教师 ------------------------------------------------------->
-            <form class="layui-form" action="<?php echo url('findTeacher'); ?>" method="post">
+            <form class="layui-form" action="<?php echo url('/findTeacher'); ?>" method="post">
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">教师编号</label>
@@ -156,14 +156,14 @@
             <br>
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <a href="<?php echo url('Dean/insertTeacher'); ?>" class="layui-btn">添加一名教师</a>
+                    <a href="<?php echo url('/insertTeacher'); ?>" class="layui-btn">添加一名教师</a>
                 </div>
             </div>
 
         </div>
         <div class="layui-tab-item">
             <!-- 		    		课程管理-------------------------------------- -->
-            <form class="layui-form" action="<?php echo url('findOnCourse'); ?>" method="post">
+            <form class="layui-form" action="<?php echo url('/findOnCourse'); ?>" method="post">
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">开课编号</label>
@@ -249,7 +249,7 @@
             <br>
             <hr>
             <!-- 				查询所有课程 -->
-            <form class="layui-form" action="<?php echo url('findCourse'); ?>" method="post">
+            <form class="layui-form" action="<?php echo url('/findCourse'); ?>" method="post">
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">课程编号</label>
@@ -275,14 +275,14 @@
             <hr>
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <a href="<?php echo url('dean/insertOnCourse'); ?>" class="layui-btn">开启一门课程</a>
-                    <a href="<?php echo url('dean/insertCourse'); ?>" class="layui-btn">添加一门课程</a>
+                    <a href="<?php echo url('/insertOnCourse'); ?>" class="layui-btn">开启一门课程</a>
+                    <a href="<?php echo url('/insertCourse'); ?>" class="layui-btn">添加一门课程</a>
                 </div>
             </div>
         </div>
         <!-- 			成绩管理------------------------------------------- -->
         <div class="layui-tab-item">
-            <form class="layui-form" action="<?php echo url('findClassDetail'); ?>" method="post">
+            <form class="layui-form" action="<?php echo url('/findClassDetail'); ?>" method="post">
                 <div class="layui-form-item">
                     <div class="inline">
                         <label class="layui-form-label">班级</label>
@@ -311,7 +311,7 @@
 
         <!-- 			班级管理--------------------------------------------------- -->
         <div class="layui-tab-item">
-            <form class="layui-form" action="<?php echo url('findClass'); ?>" method="post">
+            <form class="layui-form" action="<?php echo url('/findClass'); ?>" method="post">
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">专业名</label>
@@ -362,7 +362,7 @@
             <br>
             <hr>
             <br>
-            <form class="layui-form" action="<?php echo url('insertClass'); ?>" method="post">
+            <form class="layui-form" action="<?php echo url('/insertClass'); ?>" method="post">
                 <div class="layui-form-item">
                     <div class="inline">
                         <label class="layui-form-label">专业</label>

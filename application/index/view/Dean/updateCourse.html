@@ -20,7 +20,7 @@
     });
 </script>
 <body>
-<form class="layui-form" action="{:url('dean/doUpdateCourse')}" method="post" style="margin: 20px auto;width: 320px;">
+<form class="layui-form" action="{:url('/doUpdateCourse')}" method="post" style="margin: 20px auto;width: 320px;">
     <div class="layui-form-item">
         <label class="layui-form-label">课程编号</label>
         <div class="layui-input-inline">
@@ -49,7 +49,7 @@
         <label class="layui-form-label"> </label>
         <div class="layui-input-inline">
             <button class="layui-btn" lay-submit lay-filter="formDemo">提交修改</button>
-            <a href="{:url('Dean/findCourse')}">
+            <a href="{:url('/findCourse')}">
                 <button type="button" class="layui-btn layui-btn-primary">后退</button>
             </a>
         </div>

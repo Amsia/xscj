@@ -57,7 +57,7 @@
         <tr><td><b>考试方式: </b>{$onCourse.examFormName}</td><td><b>成绩方式: </b>{$onCourse.showFormName}</td><td><b>成绩: </b>{$onCourse.isEntryName}</td></tr>
 
     </table>
-    <form class="layui-form" action="{:url('Teacher/updateAchievementDetail')}" method="post">
+    <form class="layui-form" action="{:url('/updateAchievementDetail')}" method="post">
         <input type="hidden" name="onCourseId" value="{$onCourse.onCourseId}">
         <table class="layui-table">
             <tr>

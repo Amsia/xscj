@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\wamp64\www\xscj\public/../application/index\view\Teacher\entry.html";i:1578059279;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\wamp64\www\xscj\public/../application/index\view\Teacher\entry.html";i:1578376219;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -57,7 +57,7 @@
         <tr><td><b>考试方式: </b><?php echo $onCourse['examFormName']; ?></td><td><b>成绩方式: </b><?php echo $onCourse['showFormName']; ?></td><td><b>成绩: </b><?php echo $onCourse['isEntryName']; ?></td></tr>
 
     </table>
-    <form class="layui-form" action="<?php echo url('Teacher/updateAchievementDetail'); ?>" method="post">
+    <form class="layui-form" action="<?php echo url('/updateAchievementDetail'); ?>" method="post">
         <input type="hidden" name="onCourseId" value="<?php echo $onCourse['onCourseId']; ?>">
         <table class="layui-table">
             <tr>

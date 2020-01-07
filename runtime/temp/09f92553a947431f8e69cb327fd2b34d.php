@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\wamp64\www\xscj\public/../application/index\view\Teacher\setOnCourse.html";i:1578052488;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\wamp64\www\xscj\public/../application/index\view\Teacher\setOnCourse.html";i:1578376016;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -55,7 +55,7 @@
         <tr><td><b>考试方式: </b><?php echo $onCourse['examFormName']; ?></td><td><b>成绩方式: </b><?php echo $onCourse['showFormName']; ?></td><td><b>成绩: </b><?php echo $onCourse['isEntryName']; ?></td></tr>
 
     </table>
-    <form class="layui-form" action="<?php echo url('Teacher/doSetOnCourse'); ?>" method="post">
+    <form class="layui-form" action="<?php echo url('/doSetOnCourse'); ?>" method="post">
         <input type="hidden" name="onCourseId" value="<?php echo $onCourse['onCourseId']; ?>" >
         <div class="layui-form-item">
             <div class="layui-inline">

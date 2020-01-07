@@ -17,7 +17,7 @@ class Student extends Controller
             $this->assign('list',$list);
             return $this->fetch('Student/student');
         }else{
-            $this->error('请登录账号','index/index');
+            $this->error('请登录账号','/');
         }
     }
 

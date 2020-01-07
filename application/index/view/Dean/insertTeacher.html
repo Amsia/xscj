@@ -22,7 +22,7 @@
 </script>
 <body>
 <br>
-    <form class="layui-form" action="{:url('dean/doInsertTeacher')}" method="post" style="width: 400px;margin: 0 auto;">
+    <form class="layui-form" action="{:url('/doInsertTeacher')}" method="post" style="width: 400px;margin: 0 auto;">
     <div class="layui-form-item">
         <label class="layui-form-label">教师编号</label>
         <div class="layui-input-inline">
@@ -59,7 +59,7 @@
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit lay-filter="formDemo">插入</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            <a href="{:url('Dean/index')}">
+            <a href="{:url('/dean')}">
                 <button type="button" class="layui-btn layui-btn-primary">后退</button>
             </a>
         </div>

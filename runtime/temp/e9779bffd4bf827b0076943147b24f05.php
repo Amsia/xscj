@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\wamp64\www\xscj\public/../application/index\view\Teacher\teacher.html";i:1578064995;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\wamp64\www\xscj\public/../application/index\view\Teacher\teacher.html";i:1578376154;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -26,7 +26,7 @@
         <li >个人信息</li>
         <li class="layui-this">教师成绩管理</li>
         <div style="margin-right: 20px;float:right">
-            <a class="layui-btn layui-btn-xs" href="<?php echo url('Admin/logout'); ?>">注销账号</a>
+            <a class="layui-btn layui-btn-xs" href="<?php echo url('/logout'); ?>">注销账号</a>
         </div>
     </ul>
 
@@ -52,8 +52,8 @@
                     <td><?php echo $teacher['teacherName']; ?></td>
                     <td><?php echo $teacher['teacherAge']; ?></td>
                     <td><?php echo $teacher['teacherSex']; ?></td>
-                    <td><a class="layui-btn layui-btn-xs" href="<?php echo url('Admin/changePwd'); ?>">更改密码</a>
-                        <a class="layui-btn layui-btn-xs" href="<?php echo url('Admin/logout'); ?>">注销账号</a>
+                    <td><a class="layui-btn layui-btn-xs" href="<?php echo url('/changePwd'); ?>">更改密码</a>
+                        <a class="layui-btn layui-btn-xs" href="<?php echo url('/logout'); ?>">注销账号</a>
                     </td>
                 </tr>
                 </tbody>
@@ -103,11 +103,11 @@
 
                         <td>
                             <!-- 								对OnCourse表的更新 -->
-                            <a href="<?php echo url('teacher/setOnCourse',['onCourseId'=>$a['onCourseId']]); ?>"  class="layui-btn layui-btn-xs">设置占比</a>
+                            <a href="<?php echo url('/setOnCourse',['onCourseId'=>$a['onCourseId']]); ?>"  class="layui-btn layui-btn-xs">设置占比</a>
                             <!-- 								    对achievementDetail更新检验 合值 -->
-                            <a href="<?php echo url('teacher/entry',['onCourseId'=>$a['onCourseId']]); ?>" class="layui-btn layui-btn-xs">录入成绩</a>
+                            <a href="<?php echo url('/entry',['onCourseId'=>$a['onCourseId']]); ?>" class="layui-btn layui-btn-xs">录入成绩</a>
                             <!-- 									修改isEntry并插入achiment; -->
-                            <a href="<?php echo url('teacher/doEntry',['onCourseId'=>$a['onCourseId']]); ?>" class="layui-btn layui-btn-xs">提交结果</a></td>
+                            <a href="<?php echo url('/doEntry',['onCourseId'=>$a['onCourseId']]); ?>" class="layui-btn layui-btn-xs">提交结果</a></td>
 
                         </td>
 

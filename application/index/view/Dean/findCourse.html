@@ -45,13 +45,13 @@
                 <td>{$a.courseName}</td>
                 <td>{$a.classHour}</td>
                 <td>{$a.credit}</td>
-                <td><a href="{:url('dean/updateCourse',['courseId'=>$a.courseId])}" class="layui-btn layui-btn-xs">修改  </a>
-                    <a href="{:url('dean/deleteCourse',['courseId'=>$a.courseId])}" class="layui-btn layui-btn-xs">删除 </a></td>
+                <td><a href="{:url('/updateCourse',['courseId'=>$a.courseId])}" class="layui-btn layui-btn-xs">修改  </a>
+                    <a href="{:url('/deleteCourse',['courseId'=>$a.courseId])}" class="layui-btn layui-btn-xs">删除 </a></td>
             </tr>
             {/volist}
         </tbody>
     </table>
-    <a href="{:url('Dean/index')}" style="float: right;margin-right: 10%;">
+    <a href="{:url('/dean')}" style="float: right;margin-right: 10%;">
         <button type="button" class="layui-btn layui-btn-primary">后退</button>
     </a>
 </div>

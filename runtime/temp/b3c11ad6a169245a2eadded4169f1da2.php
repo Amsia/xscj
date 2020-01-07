@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findOnCourse.html";i:1578203429;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findOnCourse.html";i:1578378790;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,9 +70,9 @@
                 <td><?php echo $a['term']; ?></td>
                 <td><?php echo $a['classroom']; ?></td>
                 <td>
-                    <a href="<?php echo url('dean/updateOnCourse',['onCourseId'=>$a['onCourseId']]); ?>" class="layui-btn-xs layui-btn">修改 </a>
-                    <a href="<?php echo url('dean/insertStudentOnCourse',['onCourseId'=>$a['onCourseId']]); ?>" class="layui-btn-xs layui-btn">添加学生</a>
-                    <a href="<?php echo url('dean/deleteOnCourse',['onCourseId'=>$a['onCourseId']]); ?>" class="layui-btn-xs layui-btn">删除</a>
+                    <a href="<?php echo url('/updateOnCourse',['onCourseId'=>$a['onCourseId']]); ?>" class="layui-btn-xs layui-btn">修改 </a>
+                    <a href="<?php echo url('/insertStudentOnCourse',['onCourseId'=>$a['onCourseId']]); ?>" class="layui-btn-xs layui-btn">添加学生</a>
+                    <a href="<?php echo url('/deleteOnCourse',['onCourseId'=>$a['onCourseId']]); ?>" class="layui-btn-xs layui-btn">删除</a>
                 </td>
 
             </tr>
@@ -80,7 +80,7 @@
         </tbody>
 
     </table>
-    <a href="<?php echo url('Dean/index'); ?>" style="float: right;margin-right: 10%;">
+    <a href="<?php echo url('/dean'); ?>" style="float: right;margin-right: 10%;">
         <button type="button" class="layui-btn layui-btn-primary">后退</button>
     </a>
 </body>

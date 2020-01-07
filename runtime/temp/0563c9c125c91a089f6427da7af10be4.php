@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\wamp64\www\xscj\public/../application/index\view\Admin\changePWD.html";i:1578215020;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\wamp64\www\xscj\public/../application/index\view\Admin\changePWD.html";i:1578375374;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +33,7 @@
 </script>
 <body>
 <br>
-<form class="layui-form" action="<?php echo url('Admin/doChangePWD'); ?>" method="post">
+<form class="layui-form" action="<?php echo url('/doChangePWD'); ?>" method="post">
     <center>
         <input type="hidden" name="role" value="<?php echo session('user.role'); ?>" />
         <div class="layui-form-item">

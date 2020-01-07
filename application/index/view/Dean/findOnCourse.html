@@ -69,9 +69,9 @@
                 <td>{$a.term}</td>
                 <td>{$a.classroom}</td>
                 <td>
-                    <a href="{:url('dean/updateOnCourse',['onCourseId'=>$a.onCourseId])}" class="layui-btn-xs layui-btn">修改 </a>
-                    <a href="{:url('dean/insertStudentOnCourse',['onCourseId'=>$a.onCourseId])}" class="layui-btn-xs layui-btn">添加学生</a>
-                    <a href="{:url('dean/deleteOnCourse',['onCourseId'=>$a.onCourseId])}" class="layui-btn-xs layui-btn">删除</a>
+                    <a href="{:url('/updateOnCourse',['onCourseId'=>$a.onCourseId])}" class="layui-btn-xs layui-btn">修改 </a>
+                    <a href="{:url('/insertStudentOnCourse',['onCourseId'=>$a.onCourseId])}" class="layui-btn-xs layui-btn">添加学生</a>
+                    <a href="{:url('/deleteOnCourse',['onCourseId'=>$a.onCourseId])}" class="layui-btn-xs layui-btn">删除</a>
                 </td>
 
             </tr>
@@ -79,7 +79,7 @@
         </tbody>
 
     </table>
-    <a href="{:url('Dean/index')}" style="float: right;margin-right: 10%;">
+    <a href="{:url('/dean')}" style="float: right;margin-right: 10%;">
         <button type="button" class="layui-btn layui-btn-primary">后退</button>
     </a>
 </body>

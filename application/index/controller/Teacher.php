@@ -35,7 +35,7 @@ class Teacher extends Controller
             $this->assign('onCourseList',$onCourse);
             return $this->fetch('Teacher/teacher');
         }else{
-            $this->error("请重新登录账号",'index/index');
+            $this->error("请重新登录账号",'/');
         }
     }
 
@@ -48,8 +48,6 @@ class Teacher extends Controller
         }else{
             $onCourse['isEntryName']='未录入';
         }
-
-//        dump($onCourse);
         $this->assign('onCourse',$onCourse);
         return $this->fetch('Teacher/setOnCourse');
     }
@@ -57,12 +55,10 @@ class Teacher extends Controller
     public function doSetOnCourse()
     {
         $onCourse = input('post.');
-//        OnCourse::updateOnCourse($onCourse);
-
         try{OnCourse::updateOnCourseGrade($onCourse);}catch (Exception $exception){
-            $this->error("更新出错,请检查填写内容",'Teacher/index');
+            $this->error("更新出错,请检查填写内容",'/teacher');
         }
-        $this->success("更新成功！",'Teacher/index','','1');
+        $this->success("更新成功！",'/teacher','','1');
     }
 
     public function entry(Request $request)
@@ -85,7 +81,7 @@ class Teacher extends Controller
         $onCourseId = input('onCourseId');
         $onCourse = OnCourse::findByIdWithDeatil($onCourseId)[0];
         if ($onCourse['isEntry']==1){
-            $this->error("此科成绩已经录入,无法再次提交",'Teacher/index');
+            $this->error("此科成绩已经录入,无法再次提交",'/teacher');
         }
         $achievementDetailList = AchievementDetail::findById($onCourseId);
         foreach ($achievementDetailList as $value){
@@ -96,7 +92,7 @@ class Teacher extends Controller
             Achievement::addAchievement($achievement);
         }
         OnCourse::updateIsEntry($onCourseId);
-        $this->success('提交成功','Teacher/index');
+        $this->success('提交成功','/teacher');
     }
 
     public function updateAchievementDetail()
@@ -141,7 +137,7 @@ class Teacher extends Controller
             }
 
         }
-        $this->success('提交成功','Teacher/index','','1');
+        $this->success('提交成功','/teacher','','1');
     }
 
 

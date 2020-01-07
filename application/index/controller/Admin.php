@@ -29,7 +29,7 @@ class Admin extends Controller
             }else{
 //                Session::set('student',$student);
                 Session::set('user',$data);
-                $this->success("学生账号登陆成功",'Student/index','',1);
+                $this->success("学生账号登陆成功",'/student','',1);
             }
 
         }elseif ($data['role']=='teacher'){
@@ -38,7 +38,7 @@ class Admin extends Controller
                 $this->error('账号或密码错误');
             }else{
                 Session::set('user',$data);
-                $this->success("教师账号登录成功",'Teacher/index','',1);
+                $this->success("教师账号登录成功",'/teacher','',1);
             }
         }elseif ($data['role']=='dean'){
             $dean = Dean::findByAccount($data['account'],$data['password']);
@@ -46,11 +46,11 @@ class Admin extends Controller
                 $this->error('账号或密码错误');
             }else{
                 Session::set('user',$data);
-                $this->success("教务员账号登录成功",'Dean/index','',1);
+                $this->success("教务员账号登录成功",'/dean','',1);
             }
         }else{
             Session::clear();
-            $this->error('登录出现未知错误','index/index');
+            $this->error('登录出现未知错误','/');
         }
     }
 
@@ -59,7 +59,7 @@ class Admin extends Controller
         $user = \session('user');
         if ($user==null){
             \session(null);
-            $this->error("请重新登陆",'index/index');
+            $this->error("请重新登陆",'/');
         }
         return $this->fetch('Admin/changePWD');
     }
@@ -74,9 +74,9 @@ class Admin extends Controller
                 $student = $student[0];
                 $student['password'] = $user['newPassword'];
                 Student::updateStudent($student);
-                $this->success("修改成功,请重新登陆",'index/index');
+                $this->success("修改成功,请重新登陆",'/');
             }else{
-                $this->error("账号或密码错误,请重新登录",'index/index');
+                $this->error("账号或密码错误,请重新登录",'/');
             }
         }elseif ($user['role']=="teacher"){
             $teacher = Teacher::findByAccount($user['id'],$user['oldPassword']);
@@ -84,9 +84,9 @@ class Admin extends Controller
                 $teacher = $teacher[0];
                 $teacher['password'] = $user['newPassword'];
                 Teacher::updateTeacher($teacher);
-                $this->success("修改成功,请重新登陆",'index/index');
+                $this->success("修改成功,请重新登陆",'/');
             }else{
-                $this->error("账号或密码错误,请重新登录",'index/index');
+                $this->error("账号或密码错误,请重新登录",'/');
             }
         }elseif ($user['role']=="dean"){
             $dean = Dean::findByAccount($user['id'],$user['oldPassword']);
@@ -94,19 +94,19 @@ class Admin extends Controller
                 $dean = $dean[0];
                 $dean['password'] = $user['newPassword'];
                 Dean::updateDean($dean);
-                $this->success("修改成功,请重新登陆",'index/index');
+                $this->success("修改成功,请重新登陆",'/');
             }else{
-                $this->error("账号或密码错误,请重新登录",'index/index');
+                $this->error("账号或密码错误,请重新登录",'/');
             }
         }else{
-            $this->error("发生了不可预知的错误，请重新登陆",'index/index');
+            $this->error("发生了不可预知的错误，请重新登陆",'/');
         }
     }
 
     public function logout()
     {
         Session::clear();
-        $this->success("注销成功,将返回登录界面",'index/index','','1');
+        $this->success("注销成功,将返回登录界面",'/','','1');
     }
 
 

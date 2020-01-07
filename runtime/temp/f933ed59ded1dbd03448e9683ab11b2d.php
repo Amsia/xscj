@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\wamp64\www\xscj\public/../application/index\view\Student\student.html";i:1578214871;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\wamp64\www\xscj\public/../application/index\view\Student\student.html";i:1578375290;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -26,7 +26,7 @@
         <li >个人信息</li>
         <li class="layui-this">我的课程成绩</li>
         <div style="margin-right: 20px;float:right">
-            <a class="layui-btn layui-btn-xs" href="<?php echo url('Admin/logout'); ?>">注销账号</a>
+            <a class="layui-btn layui-btn-xs" href="<?php echo url('/logout'); ?>">注销账号</a>
         </div>
     </ul>
 
@@ -64,8 +64,8 @@
                     <td ><?php echo $student['className']; ?></td>
                     <td><?php echo $student['collegeName']; ?></td>
 
-                    <td><a class="layui-btn layui-btn-xs" href="<?php echo url('Admin/changePwd'); ?>">更改密码</a>
-                        <a class="layui-btn layui-btn-xs" href="<?php echo url('Admin/logout'); ?>">注销账号</a>
+                    <td><a class="layui-btn layui-btn-xs" href="<?php echo url('/changePwd'); ?>">更改密码</a>
+                        <a class="layui-btn layui-btn-xs" href="<?php echo url('/logout'); ?>">注销账号</a>
                     </td>
                 </tr>
                 </tbody>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"D:\wamp64\www\xscj\public/../application/index\view\Dean\insertStudent.html";i:1578294256;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"D:\wamp64\www\xscj\public/../application/index\view\Dean\insertStudent.html";i:1578376820;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,7 +105,7 @@
             <button class="layui-btn" lay-submit lay-filter="formDemo">插入学生</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
 <!--            <button type="button" onclick="history.go(-1)" class="layui-btn layui-btn-primary">后退</button>-->
-            <a href="<?php echo url('Dean/index'); ?>">
+            <a href="<?php echo url('/dean'); ?>">
                 <button type="button" class="layui-btn layui-btn-primary">后退</button>
             </a>
         </div>

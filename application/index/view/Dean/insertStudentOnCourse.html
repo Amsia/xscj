@@ -22,12 +22,12 @@
 <Script Language="JavaScript">
     function insert()
     {
-        document.form1.action="{:url('doInsertStudentOnCourse')}";
+        document.form1.action="{:url('/doInsertStudentOnCourse')}";
         document.form1.submit();
     }
     function delete()
     {
-        document.form1.action="{:url('deleteStudentOnCourse')}";
+        document.form1.action="{:url('/deleteStudentOnCourse')}";
         document.form1.submit();
     }
 </Script>
@@ -49,8 +49,8 @@
     <div class="layui-form-item">
         <div class="layui-inline">
             <div class="layui-inline">
-                <input type="button" name="insert" value="导入班级" class="layui-btn" onClick="form1.action='{:url("doInsertStudentOnCourse")}';form1.submit();">
-                <input type="button" name="delete" value="删除班级" class="layui-btn" onClick="form1.action='{:url("deleteStudentOnCourse")}';form1.submit();">
+                <input type="button" name="insert" value="导入班级" class="layui-btn" onClick="form1.action='{:url("/doInsertStudentOnCourse")}';form1.submit();">
+                <input type="button" name="delete" value="删除班级" class="layui-btn" onClick="form1.action='{:url("/deleteStudentOnCourse")}';form1.submit();">
             </div>
         </div>
     </div>
@@ -71,9 +71,9 @@
     <div class="layui-form-item">
         <div class="layui-inline">
             <div class="layui-inline">
-                <input type="button" name="insert" value="导入学生" class="layui-btn" onClick="form2.action='{:url("doInsertStudentOnCourse")}';form2.submit();">
-                <input type="button" name="delete" value="删除学生" class="layui-btn" onClick="form2.action='{:url("deleteStudentOnCourse")}';form2.submit();">
-                <a href="{:url('Dean/findoncourse')}">
+                <input type="button" name="insert" value="导入学生" class="layui-btn" onClick="form2.action='{:url("/doInsertStudentOnCourse")}';form2.submit();">
+                <input type="button" name="delete" value="删除学生" class="layui-btn" onClick="form2.action='{:url("/deleteStudentOnCourse")}';form2.submit();">
+                <a href="{:url('/findoncourse')}">
                     <button type="button" class="layui-btn layui-btn-primary" >后退</button>
                 </a>
             </div>
