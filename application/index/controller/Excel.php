@@ -14,7 +14,7 @@ class Excel extends Controller
     }
     public function insertStudentByExcel(){
         //引入文件
-        \think\Loader::import('phpexcel.PHPExcel',EXTEND_PATH);
+        \think\Loader::import('PHPExcel.PHPExcel',EXTEND_PATH);
         $objPHPExcel = new \PHPExcel();
         //获取表单上传文件
         $file = request()->file('file');
