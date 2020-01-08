@@ -22,16 +22,10 @@
 <body>
 <form class="layui-form" action="{:url('/doUpdateStudent')}" method="post" style="width: 400px;margin:20px auto;">
     <div class="layui-form-item">
-        <label class="layui-form-label">学号</label>
-        <div class="layui-inline">
-            <input type="text" name="studentId" value="{$student.studentId}" class="layui-input">
-        </div>
+    <input type="hidden" name="studentId" value="{$student.studentId}" class="layui-input">
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">专业号</label>
-<!--        <div class="layui-inline">-->
-<!--            <input type="text" name="majorId" value="{$student.majorId}" class="layui-input">-->
-<!--        </div>-->
         <div class="layui-inline">
             <select name="majorId" value="{$student.majorId}">
                 {volist name="majorList" id="a"}
@@ -43,9 +37,6 @@
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">班级号</label>
-<!--        <div class="layui-inline">-->
-<!--            <input type="text" name="classId" value="{$student.classId}" class="layui-input">-->
-<!--        </div>-->
         <div class="layui-inline">
             <select name="classId" value="{$student.majorId}">
                 {volist name="classList" id="a"}

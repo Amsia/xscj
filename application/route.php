@@ -32,6 +32,7 @@ Route::rule('findOnCourse','index/Dean/findOnCourse');
 Route::rule('findCourse','index/Dean/findCourse');
 Route::rule('findClassDetail','index/Dean/findClassDetail');
 Route::rule('findClass','index/Dean/findClass');
+Route::rule('findStudentAchievement','index/Dean/findStudentAchievement');
 
 Route::rule('insertStudent','index/Dean/insertStudent');
 Route::rule('insertTeacher','index/Dean/insertTeacher');
@@ -68,3 +69,4 @@ Route::rule('deleteClass','index/Dean/deleteClass');
 
 Route::rule('insertStudentByExcel','index/Excel/insertStudentByExcel');
 Route::rule('insertTeacherByExcel','index/Excel/insertTeacherByExcel');
+Route::rule('downLoadAchievement','index/Excel/downLoadAchievement');

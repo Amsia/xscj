@@ -2,6 +2,7 @@
 
 namespace app\index\controller;
 
+use app\index\model\Achievement;
 use app\index\model\AchievementDetail;
 use think\Controller;
 use think\Exception;
@@ -120,6 +121,15 @@ class Dean extends Controller
         $this->assign('classList',$classList);
         return $this->fetch('Dean/findClass');
     }
+
+    public function findStudentAchievement()
+    {
+        $onCourseId = input('onCourseId');
+        $achievementList = Achievement::findByOnCourseId($onCourseId);
+        $this->assign('onCourseId',$onCourseId);
+        $this->assign('achievementList',$achievementList);
+        return $this->fetch('Dean/findStudentAchievement');
+    }
     //----------------------updates---------------------------
     public function updateStudent(Request $request)
     {
@@ -188,6 +198,7 @@ class Dean extends Controller
     {
         $student = input('post.');
         try{
+
             Student::updateStudent($student);
         }catch (Exception $exception){
             $this->error("更新出错,请假查错误");
@@ -410,6 +421,11 @@ class Dean extends Controller
         $student = input('post.');
         $student['password']=$student['studentId'];
         try{
+            $validate = new \app\index\validate\Student();
+            $ret=$validate->check($student);
+            if (!$ret){
+                $this->error($validate->getError(),'/insertStudent','',1);
+            }
             if (Student::addStudent($student)==1){
                 $this->success('插入成功','/insertStudent','',1);
             }else{
@@ -424,7 +440,12 @@ class Dean extends Controller
         $teacher = input('post.');
         $teacher['password']=$teacher['teacherId'];
         try{
-            if (Teacher::addTeacher($teacher)==1){
+            $validate = new \app\index\validate\Teacher();
+            $ret = $validate->check($teacher);
+            if (!$ret){
+                $this->error($validate->getError(),'/insertTeacher','',1);
+            }
+            if (Teacher::addTeacher($teacher)==1&&$ret){
                 $this->success("插入成功",'/insertTeacher','',1);
             }else{
                 $this->error("插入发生错误,请检查");

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程学生成绩列表</title>
+    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
+    <script src="__STATIC__/layui/layui.js"></script>
+</head>
+<script type="text/javascript">
+    layui.use('element', function() {
+        var element = layui.element;
+        element.on('tab(demo)', function(data) {
+            console.log(data);
+        });
+    });
+    layui.use(['layer', 'form'], function(){
+        var layer = layui.layer
+            ,form = layui.form;
+        // layer.msg('学生成绩管理系统-叶广宇，沈尧');
+    });
+</script>
+
+<script type="text/javascript">
+    layui.use(['form','upload'],function(){
+        var form=layui.form;
+        var upload=layui.upload;
+
+    })
+</script>
+<script>
+    function out() {
+        layui.use(['layer','form'],function () {
+            var $=layui.$;
+            $.ajax({
+                url:"{:url('/downLoadAchievement')}",
+                data:{"onCourseId":{$onCourseId}},
+                cache:false,
+                type:"Post",
+                success:function(data){
+                    console.log(data);
+                    layer.msg(data.msg);
+                },
+                error:function(data){
+                    console.log(data);
+                }
+            });
+        });
+    }
+</script>
+<body>
+<table class="layui-table" style="width: 80%;margin:20px auto;">
+    <colgroup>
+    </colgroup>
+    <thead>
+    <tr>
+        <!--            <th>开课编号</th>-->
+        <th>学号</th>
+        <th>姓名</th>
+        <th>班级</th>
+        <th>成绩</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="achievementList" id="a"}
+    <tr>
+        <!--                <td>{$a.onCourseId}</td>-->
+        <td>{$a.studentId}</td>
+        <td>{$a.studentName}</td>
+        <td>{$a.className}</td>
+        <td>{$a.achievement}</td>
+    </tr>
+    {/volist}
+    </tbody>
+</table>
+
+<div class="layui-upload" style="float: right;margin-right: 10px;">
+
+</div>
+<form action="/downLoadAchievement" method="post">
+    <input type="hidden"value="{$onCourseId}"name="onCourseId">
+    <a href="{:url('/findOnCourse')}" style="float: right;margin-right: 10%;">
+        <button type="button" class="layui-btn layui-btn-primary">后退</button>
+    </a>
+    <button type="submit" name="myfile" class="layui-btn" id="myfile" style="float: right;margin-right: 20px;"><i class="layui-icon">&#xe601</i>导出成绩</button>
+</form>
+</body>
+</html>

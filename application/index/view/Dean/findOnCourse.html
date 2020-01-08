@@ -103,7 +103,7 @@
 </form>
 <br>
 <hr>
-    <table class="layui-table" style="width: 1440px;margin-left: 50px;">
+    <table class="layui-table" style="width: 1500px;margin-left: 20px;">
         <colgroup>
 <!--            <col width="100">-->
             <col width="100">
@@ -117,7 +117,7 @@
             <col width="100">
             <col width="100">
             <col width="100">
-            <col width="200">
+            <col width="300">
         </colgroup>
         <thead>
         <tr>
@@ -154,6 +154,7 @@
                 <td>
                     <a href="{:url('/updateOnCourse',['onCourseId'=>$a.onCourseId])}" class="layui-btn-xs layui-btn">修改 </a>
                     <a href="{:url('/insertStudentOnCourse',['onCourseId'=>$a.onCourseId])}" class="layui-btn-xs layui-btn">添加学生</a>
+                    <a href="{:url('/findStudentAchievement',['onCourseId'=>$a.onCourseId])}" class="layui-btn-xs layui-btn">查看成绩</a>
                     <a href="{:url('/deleteOnCourse',['onCourseId'=>$a.onCourseId])}" class="layui-btn-xs layui-btn">删除</a>
                 </td>
 

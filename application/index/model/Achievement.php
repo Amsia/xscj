@@ -11,7 +11,7 @@ class Achievement{
 	}
 	public static function findByOnCourseId($onCourseId)
 	{
-		return Db::table('achievement')->where('onCourseId',$onCourseId)->select();
+		return Db::table('achievement')->where('onCourseId',$onCourseId)->join('student',' achievement.studentId=student.studentId ')->join('class',' student.classId=class.classId ')->where('onCourseId',$onCourseId)->select();
 	}		
 	public static function deleteById($achievement){
 		return Db::table('achievement')->where('studentId',$achievement['studentId'])->where('onCourseId',$achievement['onCourseId'])->delete();
@@ -19,9 +19,9 @@ class Achievement{
 
 	public static function addAchievement($achievement)
 	{
-
-			 return Db::table('achievement')->insert($achievement);
-
+		
+			return Db::table('achievement')->insert($achievement);
+		
 		
 	}
 	public static function updateAchievement($achievement)

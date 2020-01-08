@@ -88,7 +88,6 @@ class Teacher extends Controller
             $achievement['studentId'] = $value['studentId'];
             $achievement['onCourseId'] = $value['onCourseId'];
             $achievement['achievement'] = 0.01*($value['daily']*$onCourse['daily']+$value['experiment']*$onCourse['experiment']+$value['finalGrade']*$onCourse['finalGrade']+$value['oral']*$onCourse['oral']+$value['theory']*$onCourse['theory']);
-            dump($achievement);
             Achievement::addAchievement($achievement);
         }
         OnCourse::updateIsEntry($onCourseId);
