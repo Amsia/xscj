@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\wamp64\www\xscj\public/../application/index\view\Teacher\teacher.html";i:1578376154;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\wamp64\www\xscj\public/../application/index\view\Teacher\teacher.html";i:1578451825;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -64,9 +64,9 @@
             <center>
                 <table class="layui-table">
                     <colgroup>
+<!--                        <col width="100">-->
                         <col width="100">
-                        <col width="100">
-                        <col width="100">
+<!--                        <col width="100">-->
                         <col width="150">
                         <col width="100">
                         <col width="200">
@@ -76,9 +76,9 @@
                     </colgroup>
                     <thead>
                     <tr>
-                        <th>开课编号</th>
+<!--                        <th>开课编号</th>-->
                         <th>考试性质</th>
-                        <th>课程号</th>
+<!--                        <th>课程号</th>-->
                         <th>课程名</th>
                         <th>修习类别</th>
                         <th>上课班级</th>
@@ -90,9 +90,9 @@
 
                     <?php if(is_array($onCourseList) || $onCourseList instanceof \think\Collection || $onCourseList instanceof \think\Paginator): $i = 0; $__LIST__ = $onCourseList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
                     <tr>
-                        <td><?php echo $a['onCourseId']; ?></td>
+<!--                        <td><?php echo $a['onCourseId']; ?></td>-->
                         <td><?php echo $a['natureName']; ?></td>
-                        <td><?php echo $a['courseId']; ?></td>
+<!--                        <td><?php echo $a['courseId']; ?></td>-->
                         <td><?php echo $a['courseName']; ?></td>
                         <td><?php echo $a['electiveName']; ?></td>
                         <td>
