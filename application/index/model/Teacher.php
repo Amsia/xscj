@@ -57,7 +57,7 @@ class Teacher{
 		if(!empty($teacher['teacherId'])){
 			$where['teacherId'] = ['like','%'.$teacher['teacherId']."%"];
 		}
-		return Db::table('teacher')->where($where)->paginate(20);
+		return Db::table('teacher')->where($where)->paginate(5);
 	}
 	public static function insertAll($teacher)
 	{

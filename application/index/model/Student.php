@@ -51,7 +51,7 @@ class Student
 			$where['studentId'] = ['like','%'.$student['studentId']."%"];
 		}
 		
-		return Db::table('student')->join('class','student.classId=class.classId ')->join('major','student.majorId=major.majorId')->join('college','student.collegeId=college.collegeId')->where($where)->select();
+		return Db::table('student')->join('class','student.classId=class.classId ')->join('major','student.majorId=major.majorId')->join('college','student.collegeId=college.collegeId')->where($where)->paginate(5);
 	}
 	public static function studentFindGrade($studentId)
 	{

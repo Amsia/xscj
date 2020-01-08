@@ -156,7 +156,7 @@ class OnCourse
 		->join('examNature','onCourse.natureId=examNature.natureId')
 		->join('course','onCourse.courseId=course.courseId')
 		->join('teacher',' onCourse.teacherId=teacher.teacherId')
-		->join('showForm',' onCourse.showFormId=showForm.showFormId')->where($where)->paginate(20)->each(function ($item,$key){
+		->join('showForm',' onCourse.showFormId=showForm.showFormId')->where($where)->paginate(5)->each(function ($item,$key){
 		    if ($item['isEntry']==0){
 		        $item['isEntryName']='未录入';
             }else{

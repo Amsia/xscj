@@ -51,6 +51,6 @@ class Classes{
 		if(!empty($class['majorName'])){
 			$where['majorName'] = ['like','%'.$class['majorName']."%"];
 		}	
-		return Db::table('class')->where($where)->join('major','class.majorId=major.majorId')->select();
+		return Db::table('class')->where($where)->join('major','class.majorId=major.majorId')->paginate(5);
 	}
 }

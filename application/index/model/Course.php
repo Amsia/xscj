@@ -52,6 +52,6 @@ class Course{
 		if(!empty($course['courseName'])){
 			$where['courseName'] = ['like','%'.$course['courseName']."%"];
 		}		
-		return Db::table('course')->where($where)->paginate(20);
+		return Db::table('course')->where($where)->paginate(5);
 	}
 }

@@ -15,61 +15,37 @@
     });
     layui.use(['layer', 'form'], function(){
         var layer = layui.layer
-            ,form = layui.form;
+            ,form = layui.form,$ = layui.$;
     });
 </script>
 <body>
-<form  class="layui-form" method="post" action="">
-
-
-
-    <div class="layui-form-item" >
-        <label class="layui-form-label">上传excel</label>
-        <div class="layui-input-inline">
-            <div class="layui-upload">
-                <button type="button" name="myfile" class="layui-btn" id="myfile"><i class="layui-icon"></i>上传文件</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="layui-form-item" style="padding-left: 35%;">
-        <div class="layui-input-inline"  >
-            <button class="layui-btn" lay-submit lay-filter="formsub">立即提交</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-        </div>
-    </div>
-
-</form>
-
-
-<script type="text/javascript">
-    layui.use(['form','upload'],function(){
-
-        var form=layui.form;
-        var upload=layui.upload;
-
-        upload.render({ //允许上传的文件后缀
-            elem: '#myfile'
-            ,url: "{:url('sale/do_upload')}"
-            ,accept: 'file' //普通文件
-            ,exts: 'xls|excel|xlsx' //只允许上传压缩文件
-            ,done: function(res){
-                if(res.code==1){
-                    layer.msg('上传成功,已解析数据',{icon:6});
-                }else{
-                    layer.msg('解析失败',{icon:5});
-                }
-            }
-        });
-
-        form.on('submit(formsub)',function(data){
-            layer.msg('导入数据具体详情未协商确认,待确认后处理');
-            return false;
-        })
-
-
-    })
-
-</script>
+<table class="layui-table" style="width:1000px;margin: 10px auto;">
+    <colgroup>
+        <col width="300">
+        <col width="300">
+        <!--            <col width="300">-->
+        <col width="120">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>专业名</th>
+        <!--            <th>班级编号</th>-->
+        <th>班级名</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="classList" id="a"}
+    <tr>
+        <td>{$a.majorName}</td>
+        <!--                <td>{$a.classId}</td>-->
+        <td>{$a.className}</td>
+        <td><a href="{:url('/updateClass',['classId'=>$a.classId])}" class="layui-btn-xs layui-btn">修改 </a>
+            <a href="{:url('/deleteClass',['classId'=>$a.classId])}" class="layui-btn-xs layui-btn">删除 </a></td>
+    </tr>
+    {/volist}
+    </tbody>
+</table>
+{$classList->render()}
 </body>
 </html>

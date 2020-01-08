@@ -44,9 +44,9 @@
         </div>
     </form>
     <br><hr>
-    <table class="layui-table" style="width: 80%;margin-left: 10%;">
+    <table class="layui-table" style="width: 1000px;margin-left: 250px;">
         <colgroup>
-            <col width="100">
+<!--            <col width="100">-->
             <col width="200">
             <col width="100">
             <col width="100">
@@ -54,7 +54,7 @@
         </colgroup>
         <thead>
         <tr>
-            <th>课程编号</th>
+<!--            <th>课程编号</th>-->
             <th>课程名</th>
             <th>课时</th>
             <th>学分</th>
@@ -64,7 +64,7 @@
         <tbody>
             {volist name="courseList" id="a"}
             <tr>
-                <td>{$a.courseId}</td>
+<!--                <td>{$a.courseId}</td>-->
                 <td>{$a.courseName}</td>
                 <td>{$a.classHour}</td>
                 <td>{$a.credit}</td>
@@ -74,7 +74,7 @@
             {/volist}
         </tbody>
     </table>
-
+    {$courseList->render()}
     <a href="{:url('/dean')}" style="float: right;margin-right: 10%;">
         <button type="button" class="layui-btn layui-btn-primary">后退</button>
     </a>
