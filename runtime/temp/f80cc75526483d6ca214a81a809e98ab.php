@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findClassDetail.html";i:1578376761;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findClassDetail.html";i:1578450310;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +28,7 @@
         </colgroup>
         <thead>
         <tr>
-            <th>开课编号</th>
+<!--            <th>开课编号</th>-->
             <th>课程名</th>
             <th>平均分</th>
             <th>总人数</th>
@@ -38,7 +38,7 @@
         <tbody>
         <?php if(is_array($totalSumsList) || $totalSumsList instanceof \think\Collection || $totalSumsList instanceof \think\Paginator): $i = 0; $__LIST__ = $totalSumsList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
             <tr>
-                <td><?php echo $a['onCourseId']; ?></td>
+<!--                <td><?php echo $a['onCourseId']; ?></td>-->
                 <td><?php echo $a['courseName']; ?></td>
                 <td><?php echo $a['avgGrade']; ?></td>
                 <td><?php echo $a['sum']; ?></td>

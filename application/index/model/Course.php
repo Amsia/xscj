@@ -24,11 +24,9 @@ class Course{
 
 	public static function addCourse($course)
 	{
-		$temp = Course::findById($course['courseId']);
-		if(empty($temp)){
+		
 			return Db::table('course')->insert($course);
-		}		
-		return "";
+		
 		
 	}
 	public static function updateCourse($course)

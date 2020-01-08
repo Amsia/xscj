@@ -28,13 +28,8 @@
 <form class="layui-form" action="{:url('/doUpdateOnCourse')}" method="post" style="width:1200px ;margin: 20px auto;">
     <div class="layui-form-item">
         <div class="layui-inline">
-            <div class="layui-inline">
-            <label class="layui-form-label">开课编号</label>
-            <div class="layui-inline">
-                <input type="text" name="onCourseId" placeholder="请输入开课编号" autocomplete="off"
+                <input type="hidden" name="onCourseId" placeholder="请输入开课编号" autocomplete="off"
                        class="layui-input" value="{$onCourse.onCourseId}">
-            </div>
-            </div>
             <div class="layui-inline">
                 <label class="layui-form-label">教师编号</label>
                 <div class="layui-inline">

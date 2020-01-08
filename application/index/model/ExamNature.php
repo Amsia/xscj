@@ -23,11 +23,9 @@ class ExamNature{
 
 	public static function addExamNature($examNature)
 	{
-		$temp = ExamNature::findById($examNature['natureId']);
-		if(empty($temp)){
+		
 			return Db::table('examNature')->insert($examNature);
-		}		
-		return "";
+		
 		
 	}
 	public static function updateExamNature($examNature)

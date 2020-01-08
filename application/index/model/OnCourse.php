@@ -41,11 +41,9 @@ class OnCourse
 
 	public static function addOnCourse($onCourse)
 	{
-		$temp = OnCourse::findById($onCourse['onCourseId']);
-		if(empty($temp)){
+		
 			return Db::table('onCourse')->insert($onCourse);
-		}		
-		return "";		
+			
 	}
 
 	public static function updateOnCourse($onCourse)

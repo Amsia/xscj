@@ -21,12 +21,10 @@
 </script>
 <body>
 <form class="layui-form" action="{:url('/doUpdateCourse')}" method="post" style="margin: 20px auto;width: 320px;">
-    <div class="layui-form-item">
-        <label class="layui-form-label">课程编号</label>
+
         <div class="layui-input-inline">
-            <input type="text" name="courseId" value="{$course.courseId}" class="layui-input">
+            <input type="hidden" name="courseId" value="{$course.courseId}" class="layui-input">
         </div>
-    </div>
     <div class="layui-form-item">
         <label class="layui-form-label">课程名</label>
         <div class="layui-input-inline">

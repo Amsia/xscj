@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\wamp64\www\xscj\public/../application/index\view\Dean\updateOnCourse.html";i:1578296308;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\wamp64\www\xscj\public/../application/index\view\Dean\updateOnCourse.html";i:1578449614;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,16 +26,11 @@
     });
 </script>
 <body>
-<form class="layui-form" action="<?php echo url('dean/doUpdateOnCourse'); ?>" method="post" style="width:1200px ;margin: 20px auto;">
+<form class="layui-form" action="<?php echo url('/doUpdateOnCourse'); ?>" method="post" style="width:1200px ;margin: 20px auto;">
     <div class="layui-form-item">
         <div class="layui-inline">
-            <div class="layui-inline">
-            <label class="layui-form-label">开课编号</label>
-            <div class="layui-inline">
-                <input type="text" name="onCourseId" placeholder="请输入开课编号" autocomplete="off"
+                <input type="hidden" name="onCourseId" placeholder="请输入开课编号" autocomplete="off"
                        class="layui-input" value="<?php echo $onCourse['onCourseId']; ?>">
-            </div>
-            </div>
             <div class="layui-inline">
                 <label class="layui-form-label">教师编号</label>
                 <div class="layui-inline">
@@ -101,7 +96,7 @@
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit lay-filter="formDemo">提交修改</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            <a href="<?php echo url('Dean/findOnCourse'); ?>">
+            <a href="<?php echo url('/findOnCourse'); ?>">
                 <button type="button" class="layui-btn layui-btn-primary">后退</button>
             </a>
         </div>

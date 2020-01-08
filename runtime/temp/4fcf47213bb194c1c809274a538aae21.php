@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\wamp64\www\xscj\public/../application/index\view\Dean\insertClass.html";i:1578408916;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\wamp64\www\xscj\public/../application/index\view\Dean\insertClass.html";i:1578450533;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,15 +36,15 @@
             </div>
         </div>
     </div>
-    <div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">班级编号</label>
-            <div class="layui-inline">
-                <input type="text" name="classId" required lay-verify="required" placeholder="请输入班级编号" autocomplete="off"
-                       class="layui-input">
-            </div>
-        </div>
-    </div>
+<!--    <div class="layui-form-item">-->
+<!--        <div class="layui-inline">-->
+<!--            <label class="layui-form-label">班级编号</label>-->
+<!--            <div class="layui-inline">-->
+<!--                <input type="text" name="classId" required lay-verify="required" placeholder="请输入班级编号" autocomplete="off"-->
+<!--                       class="layui-input">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">班级名</label>

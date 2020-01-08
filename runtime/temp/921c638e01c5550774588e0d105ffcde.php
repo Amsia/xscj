@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\wamp64\www\xscj\public/../application/index\view\Dean\updateClass.html";i:1578378836;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\wamp64\www\xscj\public/../application/index\view\Dean\updateClass.html";i:1578450420;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,15 +34,10 @@
             </div>
         </div>
     </div>
-    <div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">班级编号</label>
-            <div class="layui-inline">
-                <input type="text" name="classId" placeholder="请输入班级编号" autocomplete="off" required lay-verify="required"
+
+                <input type="hidden" name="classId" placeholder="请输入班级编号" autocomplete="off" required lay-verify="required"
                        class="layui-input" value="<?php echo $class['classId']; ?>">
-            </div>
-        </div>
-    </div>
+
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">班级名</label>

@@ -21,11 +21,9 @@ class College{
 
 	public static function addCollege($college)
 	{
-		$temp = College::findById($college['collegeId']);
-		if(empty($temp)){
+		
 			return Db::table('college')->insert($college);
-		}		
-		return "";
+		
 		
 	}
 	public static function updateCollege($college)

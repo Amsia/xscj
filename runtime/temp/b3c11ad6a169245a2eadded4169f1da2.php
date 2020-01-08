@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findOnCourse.html";i:1578407346;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findOnCourse.html";i:1578449506;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,14 +24,33 @@
 <form class="layui-form" action="<?php echo url('/findOnCourse'); ?>" method="post" style="width: 1300px; margin: 20px auto;">
     <div class="layui-form-item">
         <div class="layui-inline">
-            <label class="layui-form-label">开课编号</label>
-            <div class="layui-inline">
-                <input type="text" name="onCourseId" placeholder="请输入开课编号" autocomplete="off"
-                       class="layui-input">
-            </div>
-            <label class="layui-inline">教师编号</label>
+<!--            <label class="layui-form-label">开课编号</label>-->
+<!--            <div class="layui-inline">-->
+<!--                <input type="text" name="onCourseId" placeholder="请输入开课编号" autocomplete="off"-->
+<!--                       class="layui-input">-->
+<!--            </div>-->
+            <label class="layui-form-label">教师编号</label>
             <div class="layui-inline">
                 <input type="text" name="teacherId" placeholder="请输入教师编号" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <label class="layui-inline">课程名</label>
+            <div class="layui-inline">
+                <select name="courseId">
+                    <option value="">空</option>
+                    <?php if(is_array($courseList) || $courseList instanceof \think\Collection || $courseList instanceof \think\Paginator): $i = 0; $__LIST__ = $courseList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
+                    <option value="<?php echo $a['courseId']; ?>"><?php echo $a['courseName']; ?></option>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
+            </div>
+            <label class="layui-inline">学期</label>
+            <div class="layui-inline">
+                <input type="text" name="term" placeholder="请输入学期" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <label class="layui-inline">上课教室</label>
+            <div class="layui-inline">
+                <input type="text" name="classroom" placeholder="上课教室" autocomplete="off"
                        class="layui-input">
             </div>
         </div>
@@ -77,25 +96,6 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">课程编号</label>
-            <div class="layui-inline">
-                <input type="text" name="courseId" placeholder="课程编号" autocomplete="off"
-                       class="layui-input">
-            </div>
-            <label class="layui-inline">学期</label>
-            <div class="layui-inline">
-                <input type="text" name="term" placeholder="请输入学期" autocomplete="off"
-                       class="layui-input">
-            </div>
-            <label class="layui-inline">上课教室</label>
-            <div class="layui-inline">
-                <input type="text" name="classroom" placeholder="上课教室" autocomplete="off"
-                       class="layui-input">
-            </div>
-        </div>
-    </div>
-    <div class="layui-form-item">
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit lay-filter="formDemo">查询已开课</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
@@ -106,7 +106,7 @@
 <hr>
     <table class="layui-table" style="width: 1520px;margin-left: 8px;">
         <colgroup>
-            <col width="100">
+<!--            <col width="100">-->
             <col width="100">
             <col width="100">
             <col width="100">
@@ -122,11 +122,11 @@
         </colgroup>
         <thead>
         <tr>
-            <th>开课编号</th>
+<!--            <th>开课编号</th>-->
             <th>考试形式</th>
             <th>考试性质</th>
             <th>任课教师</th>
-            <th>课程编号</th>
+            <th>课程</th>
             <th>成绩制度</th>
             <th>成绩是否录入</th>
             <th>录入截止时间</th>
@@ -140,7 +140,7 @@
         <tbody>
             <?php if(is_array($onCourseList) || $onCourseList instanceof \think\Collection || $onCourseList instanceof \think\Paginator): $i = 0; $__LIST__ = $onCourseList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
             <tr>
-                <td><?php echo $a['onCourseId']; ?></td>
+<!--                <td><?php echo $a['onCourseId']; ?></td>-->
                 <td><?php echo $a['examFormName']; ?></td>
                 <td><?php echo $a['natureName']; ?></td>
                 <td><?php echo $a['teacherName']; ?></td>

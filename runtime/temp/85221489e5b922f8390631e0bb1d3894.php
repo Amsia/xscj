@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findClass.html";i:1578409544;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findClass.html";i:1578450492;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,15 +48,15 @@
                     <input type="text" name="className" placeholder="请输入班级名" autocomplete="off"
                            class="layui-input">
                 </div>
-                <label class="layui-inline">班级</label>
-                <div class="layui-inline">
-                    <select name="classId">
-                        <option value="">空</option>
-                        <?php if(is_array($classList) || $classList instanceof \think\Collection || $classList instanceof \think\Paginator): $i = 0; $__LIST__ = $classList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
-                        <option value="<?php echo $a['classId']; ?>"><?php echo $a['className']; ?></option>
-                        <?php endforeach; endif; else: echo "" ;endif; ?>
-                    </select>
-                </div>
+<!--                <label class="layui-inline">班级</label>-->
+<!--                <div class="layui-inline">-->
+<!--                    <select name="classId">-->
+<!--                        <option value="">空</option>-->
+<!--                        <?php if(is_array($classList) || $classList instanceof \think\Collection || $classList instanceof \think\Paginator): $i = 0; $__LIST__ = $classList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>-->
+<!--                        <option value="<?php echo $a['classId']; ?>"><?php echo $a['className']; ?></option>-->
+<!--                        <?php endforeach; endif; else: echo "" ;endif; ?>-->
+<!--                    </select>-->
+<!--                </div>-->
 
             </div>
         </div>
@@ -74,13 +74,13 @@
         <colgroup>
             <col width="300">
             <col width="300">
-            <col width="300">
+<!--            <col width="300">-->
             <col width="120">
         </colgroup>
         <thead>
         <tr>
             <th>专业名</th>
-            <th>班级编号</th>
+<!--            <th>班级编号</th>-->
             <th>班级名</th>
             <th>操作</th>
         </tr>
@@ -89,7 +89,7 @@
             <?php if(is_array($classList) || $classList instanceof \think\Collection || $classList instanceof \think\Paginator): $i = 0; $__LIST__ = $classList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
             <tr>
                 <td><?php echo $a['majorName']; ?></td>
-                <td><?php echo $a['classId']; ?></td>
+<!--                <td><?php echo $a['classId']; ?></td>-->
                 <td><?php echo $a['className']; ?></td>
                 <td><a href="<?php echo url('/updateClass',['classId'=>$a['classId']]); ?>" class="layui-btn-xs layui-btn">修改 </a>
                     <a href="<?php echo url('/deleteClass',['classId'=>$a['classId']]); ?>" class="layui-btn-xs layui-btn">删除 </a></td>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\wamp64\www\xscj\public/../application/index\view\Dean\dean.html";i:1578408615;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\wamp64\www\xscj\public/../application/index\view\Dean\dean.html";i:1578450346;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -222,10 +222,14 @@
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-inline">
-                        <label class="layui-form-label">课程编号</label>
+                        <label class="layui-form-label">课程名</label>
                         <div class="layui-inline">
-                            <input type="text" name="courseId" placeholder="课程编号" autocomplete="off"
-                                   class="layui-input">
+                            <select name="courseId">
+                                <option value="">空</option>
+                                <?php if(is_array($courseList) || $courseList instanceof \think\Collection || $courseList instanceof \think\Paginator): $i = 0; $__LIST__ = $courseList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
+                                <option value="<?php echo $a['courseId']; ?>"><?php echo $a['courseName']; ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </select>
                         </div>
                         <label class="layui-inline">学期</label>
                         <div class="layui-inline">
@@ -251,14 +255,14 @@
             <!-- 				查询所有课程 -->
             <form class="layui-form" action="<?php echo url('/findCourse'); ?>" method="post">
                 <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">课程编号</label>
-                        <div class="layui-inline">
-                            <input type="text" name="courseId" placeholder="请输入课程编号" autocomplete="off"
-                                   class="layui-input">
-                        </div>
-                    </div>
-                    <label class="layui-inline">课程名</label>
+<!--                    <div class="layui-inline">-->
+<!--                        <label class="layui-form-label">课程编号</label>-->
+<!--                        <div class="layui-inline">-->
+<!--                            <input type="text" name="courseId" placeholder="请输入课程编号" autocomplete="off"-->
+<!--                                   class="layui-input">-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <label class="layui-form-label">课程名</label>
                     <div class="layui-inline">
                         <input type="text" name="courseName" placeholder="请输入课程名" autocomplete="off"
                                class="layui-input">
@@ -334,15 +338,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">班级编号</label>
-                        <div class="layui-inline">
-                            <input type="text" name="classId" placeholder="请输入班级编号" autocomplete="off"
-                                   class="layui-input">
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="layui-form-item">-->
+<!--                    <div class="layui-inline">-->
+<!--                        <label class="layui-form-label">班级编号</label>-->
+<!--                        <div class="layui-inline">-->
+<!--                            <input type="text" name="classId" placeholder="请输入班级编号" autocomplete="off"-->
+<!--                                   class="layui-input">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">班级名</label>

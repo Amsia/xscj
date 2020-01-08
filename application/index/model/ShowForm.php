@@ -24,11 +24,9 @@ class ShowForm{
 
 	public static function addShowForm($showForm)
 	{
-		$temp = ShowForm::findById($showForm['showFormId']);
-		if(empty($temp)){
+		
 			return Db::table('showForm')->insert($showForm);
-		}		
-		return "";
+		
 		
 	}
 	public static function updateShowForm($showForm)

@@ -23,11 +23,9 @@ class Major{
 
 	public static function addMajor($major)
 	{
-		$temp = Major::findById($major['majorId']);
-		if(empty($temp)){
+	
 			return Db::table('major')->insert($major);
-		}		
-		return "";
+		
 		
 	}
 	public static function updateMajor($major)

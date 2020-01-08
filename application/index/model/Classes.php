@@ -21,11 +21,8 @@ class Classes{
 
 	public static function addClass($class)
 	{
-		$temp = Classes::findById($class['classId']);
-		if(empty($temp)){
+		
 			return Db::table('class')->insert($class);
-		}		
-		return "";
 		
 	}
 	public static function updateClass($class)

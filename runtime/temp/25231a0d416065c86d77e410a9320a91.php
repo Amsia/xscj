@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findCourse.html";i:1578406905;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\wamp64\www\xscj\public/../application/index\view\Dean\findCourse.html";i:1578450080;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,13 +25,13 @@
     <form class="layui-form" action="<?php echo url('/findCourse'); ?>" method="post" style="width: 600px;margin: 20px auto;">
         <div class="layui-form-item">
             <div class="layui-inline">
-                <label class="layui-form-label">课程编号</label>
-                <div class="layui-inline">
-                    <input type="text" name="courseId" placeholder="请输入课程编号" autocomplete="off"
-                           class="layui-input">
-                </div>
+<!--                <label class="layui-form-label">课程编号</label>-->
+<!--                <div class="layui-inline">-->
+<!--                    <input type="text" name="courseId" placeholder="请输入课程编号" autocomplete="off"-->
+<!--                           class="layui-input">-->
+<!--                </div>-->
             </div>
-            <label class="layui-inline">课程名</label>
+            <label class="layui-form-label">课程名</label>
             <div class="layui-inline">
                 <input type="text" name="courseName" placeholder="请输入课程名" autocomplete="off"
                        class="layui-input">
