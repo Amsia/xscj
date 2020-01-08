@@ -59,4 +59,8 @@ class Teacher{
 		}
 		return Db::table('teacher')->where($where)->paginate(20);
 	}
+	public static function insertAll($teacher)
+	{
+       return Db::table('teacher')->insertAll($teacher);
+	}
 }

@@ -73,6 +73,10 @@ class Student
 		return "";
 		
 	}
+	public static function insertAll($student)
+	{
+       return Db::table('student')->insertAll($student);
+	}
 	public static function updateStudent($student)
 	{
 		$setField=[];

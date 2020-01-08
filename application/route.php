@@ -65,3 +65,6 @@ Route::rule('deleteOnCourse','index/Dean/deleteOnCourse');
 Route::rule('deleteStudentOnCourse','index/Dean/deleteStudentOnCourse');
 Route::rule('deleteCourse','index/Dean/deleteCourse');
 Route::rule('deleteClass','index/Dean/deleteClass');
+
+Route::rule('insertStudentByExcel','index/Excel/insertStudentByExcel');
+Route::rule('insertTeacherByExcel','index/Excel/insertTeacherByExcel');

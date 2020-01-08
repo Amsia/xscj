@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\wamp64\www\xscj\public/../application/index\view\Dean\dean.html";i:1578450346;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\wamp64\www\xscj\public/../application/index\view\Dean\dean.html";i:1578470755;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -19,6 +19,52 @@
             ,form = layui.form;
         // layer.msg('学生成绩管理系统-叶广宇，沈尧');
     });
+</script>
+<script type="text/javascript">
+    layui.use(['form','upload'],function(){
+        var form=layui.form;
+        var upload=layui.upload;
+        upload.render({ //允许上传的文件后缀
+            elem: '#myfile'
+            ,url: "<?php echo url('/insertStudentByExcel'); ?>"
+            ,accept: 'file' //普通文件
+            ,exts: 'xls|excel|xlsx' //只允许上传压缩文件
+            ,done: function(res){
+                console.log(res);
+                if(res.code==1){
+                    layer.msg('上传成功,成功添加数据',{icon:6});
+                }else{
+                    layer.open({
+                        title: '数据错误',
+                        content:res.msg+'</br>Rule: '+res.data.rule,
+                    })
+                }
+            }
+        });
+    })
+</script>
+<script type="text/javascript">
+    layui.use(['form','upload'],function(){
+        var form=layui.form;
+        var upload=layui.upload;
+        upload.render({ //允许上传的文件后缀
+            elem: '#myfile2'
+            ,url: "<?php echo url('/insertTeacherByExcel'); ?>"
+            ,accept: 'file' //普通文件
+            ,exts: 'xls|excel|xlsx' //只允许上传压缩文件
+            ,done: function(res){
+                console.log(res);
+                if(res.code==1){
+                    layer.msg('上传成功,成功添加数据',{icon:6});
+                }else{
+                    layer.open({
+                        title: '数据错误',
+                        content:res.msg+'</br>Rule: '+res.data.rule,
+                    })
+                }
+            }
+        });
+    })
 </script>
 <body>
 <div class="layui-tab" lay-filter="demo">
@@ -115,9 +161,13 @@
             <br>
             <hr>
             <br>
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                    <a href="<?php echo url('/insertStudent'); ?>" class="layui-btn">添加一名学生</a>
+            <div class="layui-form-item" >
+                <label class="layui-form-label"> </label>
+                <div class="layui-input-inline">
+                    <div class="layui-upload">
+                        <button type="button" name="myfile" class="layui-btn" id="myfile"><i class="layui-icon">&#xe67c</i>批量添加学生</button>
+                    </div>
+                    <div class="layui-inline layui-word-aux">上传excel文件</div>
                 </div>
             </div>
         </div>
@@ -154,9 +204,13 @@
             <br>
             <hr>
             <br>
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                    <a href="<?php echo url('/insertTeacher'); ?>" class="layui-btn">添加一名教师</a>
+            <div class="layui-form-item" >
+                <label class="layui-form-label"> </label>
+                <div class="layui-input-inline">
+                    <div class="layui-upload">
+                        <button type="button" name="myfile2" class="layui-btn" id="myfile2"><i class="layui-icon">&#xe67c</i>批量添加教师</button>
+                    </div>
+                    <div class="layui-inline layui-word-aux">上传excel文件</div>
                 </div>
             </div>
 
