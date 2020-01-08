@@ -205,7 +205,7 @@ class Excel extends Controller
         $objExcel->setActiveSheetIndex(0);
         $time=date('Y-m-d');
         header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename='.$time.'.xls');
+        header('Content-Disposition: attachment;filename=成绩列表'.$time.'.xls');
         header('Cache-Control: max-age=0');
 
         $objWriter->save('php://output');
