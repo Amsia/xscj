@@ -14,7 +14,7 @@ class Excel extends Controller
     }
     public function insertStudentByExcel(){
         //引入文件
-        \think\Loader::import('PHPExcel.PHPExcel');
+        \think\Loader::import('phpexcel.PHPExcel',EXTEND_PATH);
         $objPHPExcel = new \PHPExcel();
         //获取表单上传文件
         $file = request()->file('file');
@@ -30,7 +30,7 @@ class Excel extends Controller
         //上传文件的地址
         $filename = ROOT_PATH . 'public' . DS . 'uploads'.DS . $exclePath;
         $extension = strtolower( pathinfo($filename, PATHINFO_EXTENSION) );
-        \think\Loader::import('PHPExcel.IOFactory.PHPExcel_IOFactory');
+        \think\Loader::import('PHPExcel.IOFactory.PHPExcel_IOFactory',EXTEND_PATH);
         if ($extension =='xlsx') {
             $objReader = new \PHPExcel_Reader_Excel2007();
             $objExcel = $objReader ->load($filename);
@@ -99,7 +99,7 @@ class Excel extends Controller
     public function insertTeacherByExcel()
     {
         //引入文件
-        \think\Loader::import('PHPExcel.PHPExcel');
+        \think\Loader::import('PHPExcel.PHPExcel',EXTEND_PATH);
         $objPHPExcel = new \PHPExcel();
         //获取表单上传文件
         $file = request()->file('file');
@@ -115,7 +115,7 @@ class Excel extends Controller
         //上传文件的地址
         $filename = ROOT_PATH . 'public' . DS . 'uploads'.DS . $exclePath;
         $extension = strtolower( pathinfo($filename, PATHINFO_EXTENSION) );
-        \think\Loader::import('PHPExcel.IOFactory.PHPExcel_IOFactory');
+        \think\Loader::import('PHPExcel.IOFactory.PHPExcel_IOFactory',EXTEND_PATH);
         if ($extension =='xlsx') {
             $objReader = new \PHPExcel_Reader_Excel2007();
             $objExcel = $objReader ->load($filename);
