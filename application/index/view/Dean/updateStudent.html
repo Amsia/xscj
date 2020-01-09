@@ -27,7 +27,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">专业号</label>
         <div class="layui-inline">
-            <select name="majorId" value="{$student.majorId}">
+            <select name="majorId"  required  lay-verify="required"  value="{$student.majorId}">
                 {volist name="majorList" id="a"}
                 <option value="{$a.majorId}" {$student.majorId==$a.majorId?'selected':''}>{$a.majorName}</option>
                 {/volist}
@@ -38,7 +38,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">班级号</label>
         <div class="layui-inline">
-            <select name="classId" value="{$student.majorId}">
+            <select name="classId" required  lay-verify="required"  value="{$student.majorId}">
                 {volist name="classList" id="a"}
                 <option value="{$a.classId}" {$student.classId==$a.classId?'selected':''}>{$a.className}</option>
                 {/volist}
@@ -47,11 +47,8 @@
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">学院号</label>
-<!--        <div class="layui-inline">-->
-<!--            <input type="text" name="collegeId" value="{$student.collegeId}" class="layui-input">-->
-<!--        </div>-->
         <div class="layui-inline">
-            <select name="collegeId" value="{$student.collegeId}">
+            <select name="collegeId" value="{$student.collegeId}" required  lay-verify="required" >
                 {volist name="collegeList" id="a"}
                 <option value="{$a.collegeId}" {$student.collegeId==$a.collegeId?'selected':''}>{$a.collegeName}</option>
                 {/volist}
@@ -61,13 +58,13 @@
     <div class="layui-form-item">
         <label class="layui-form-label">学生名</label>
         <div class="layui-inline">
-            <input type="text" name="studentName" value="{$student.studentName}" class="layui-input">
+            <input type="text" name="studentName" value="{$student.studentName}"  required  lay-verify="required"  class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">年龄</label>
         <div class="layui-inline">
-            <input type="text" name="studentAge" value="{$student.studentAge}" class="layui-input">
+            <input type="text" name="studentAge"  required  lay-verify="required|number"  value="{$student.studentAge}" class="layui-input">
         </div>
     </div>
 <!--    <div class="layui-form-item">-->

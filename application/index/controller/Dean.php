@@ -198,10 +198,14 @@ class Dean extends Controller
     {
         $student = input('post.');
         try{
-
+            $validate = new \app\index\validate\Student();
+            $ret=$validate->check($student);
+            if (!$ret){
+                $this->error($validate->getError(),'/insertStudent','',1);
+            }
             Student::updateStudent($student);
         }catch (Exception $exception){
-            $this->error("更新出错,请假查错误");
+            $this->error("更新出错,请检查错误");
         }
         $this->success('修改成功','/findStudent','',1);
     }
@@ -210,9 +214,14 @@ class Dean extends Controller
     {
         $teacher = input('post.');
         try{
+            $validate = new \app\index\validate\Teacher();
+            $ret = $validate->check($teacher);
+            if (!$ret){
+                $this->error($validate->getError(),'/findTeacher','',1);
+            }
             Teacher::updateTeacher($teacher);
         }catch (Exception $exception){
-            $this->error("更新出错,请假查错误");
+            $this->error("更新出错,请检查错误");
         }
         $this->success('修改成功','/findTeacher','',1);
     }
@@ -223,7 +232,7 @@ class Dean extends Controller
         try{
             OnCourse::updateOnCourse($onCourse);
         }catch (Exception $exception){
-            $this->error("更新出错,请假查错误");
+            $this->error("更新出错,请检查错误");
         }
         $this->success('修改成功','/findOnCourse','','1');
     }
@@ -234,7 +243,7 @@ class Dean extends Controller
         try{
             Course::updateCourse($course);
         }catch (Exception $exception){
-            $this->error("更新出错,请假查错误");
+            $this->error("更新出错,请检查错误");
         }
         $this->success('修改成功','/findCourse','',1);
     }
@@ -245,7 +254,7 @@ class Dean extends Controller
         try{
             Classes::updateClass($class);
         }catch (Exception $exception){
-            $this->error("更新出错,请假查错误");
+            $this->error("更新出错,请检查错误");
         }
         $this->success("修改成功",'/findClass','',1);
     }
