@@ -314,6 +314,9 @@ class Dean extends Controller
                     $achievementDetail['studentId']=$item['studentId'];
                     AchievementDetail::deleteById($achievementDetail);
                 }
+                $onCourseClass['onCourseId'] = $data['onCourseId'];
+                $onCourseClass['classId'] = $data['id'];
+                AchievementDetail::deleteOnCourseClass($onCourseClass);
             }elseif ($data['role']=='student'){
                 $achievementDetail['onCourseId'] = $data['onCourseId'];
                 $achievementDetail['studentId']=$data['id'];
@@ -376,9 +379,7 @@ class Dean extends Controller
 
     public function insertStudentOnCourse($onCourseId)
     {
-//        echo "test";
-//        dump($onCourseId);
-//        $onCourseId = input('onCourseId');
+
         $classList = Classes::findAll();
         $achievementDetail = AchievementDetail::findById($onCourseId);
         $this->assign('onCourseId',$onCourseId);
@@ -473,16 +474,23 @@ class Dean extends Controller
             foreach ($studentList as $item) {
                 $achievementDetail['onCourseId'] = $data['onCourseId'];
                 $achievementDetail['studentId'] = $item['studentId'];
-                try{AchievementDetail::addAchievementDetail($achievementDetail);}
+                try{
+                    AchievementDetail::addAchievementDetail($achievementDetail);
+                }
                 catch (Exception $exception)
                 {
                     $this->error("添加错误,学生已存在或不能为空",'/findOnCourse','',1);
                 }
             }
+            $onCourseClass['onCourseId'] = $data['onCourseId'];
+            $onCourseClass['classId'] = $data['id'];
+            AchievementDetail::addOnCourseClass($onCourseClass);
         }elseif ($data['role']=='student'){
                 $achievementDetail['onCourseId'] = $data['onCourseId'];
                 $achievementDetail['studentId'] = $data['id'];
-                try{AchievementDetail::addAchievementDetail($achievementDetail);}
+                try{
+                    AchievementDetail::addAchievementDetail($achievementDetail);
+                }
                 catch (Exception $exception)
                 {
                     $this->error("添加错误,学生已存在或不能为空",'/findOnCourse','',1);
