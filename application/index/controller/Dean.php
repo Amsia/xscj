@@ -201,7 +201,7 @@ class Dean extends Controller
             $validate = new \app\index\validate\Student();
             $ret=$validate->check($student);
             if (!$ret){
-                $this->error($validate->getError(),'/insertStudent','',1);
+                $this->error($validate->getError(),'/findStudent','',1);
             }
             Student::updateStudent($student);
         }catch (Exception $exception){
