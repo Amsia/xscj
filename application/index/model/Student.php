@@ -55,7 +55,7 @@ class Student
 	}
 	public static function studentFindGrade($studentId)
 	{
-		return Db::table('achievement')->join('onCourse','achievement.onCourseId=onCourse.onCourseId')->join('course','onCourse.courseId=course.courseId')->join('examNature','onCourse.natureId=examNature.natureId')->join('examForm','onCourse.examFormId=examForm.examFormId')->join('elective','onCourse.electiveId=elective.electiveId')->where('studentId',$studentId)->paginate(20);
+		return Db::table('achievement')->join('onCourse','achievement.onCourseId=onCourse.onCourseId')->join('course','onCourse.courseId=course.courseId')->join('examNature','onCourse.natureId=examNature.natureId')->join('examForm','onCourse.examFormId=examForm.examFormId')->join('elective','onCourse.electiveId=elective.electiveId')->where('studentId',$studentId)->paginate(15);
 	}
 	public static function findAllAvgGradeByClassId($classId)
 	{
